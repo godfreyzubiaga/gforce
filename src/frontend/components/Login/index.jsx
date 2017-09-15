@@ -1,28 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { inject } from 'mobx-react';
 import { StyledDiv, StyledInput, StyledForm } from './style.js';
 
+@inject('store')
 class Login extends React.Component {
   render() {
+    const { store: { authStore } } = this.props;
     return (
       <StyledDiv>
         <h1>Tambay.ph</h1>
         <StyledForm>
           <StyledInput>
-            <label for="password">Username</label>
+            <label>Username</label>
             <br />
-            <input id="username" type="text" name="username" placeholder="Username " />
+            <input id="username" type="text" name="username" placeholder="Username" onChange={authStore.setValue} />
           </StyledInput>
           <StyledInput>
-            <label for="password">Password</label>
+            <label>Password</label>
             <br />
-            <input type="password" name="password" />
+            <input type="password" id="password" name="password" onChange={authStore.setValue} />
           </StyledInput>
           <StyledInput>
-            <input type="submit" name="Login" value="Login" />
+            <input type="submit" name="Login" value="Login" onClick={authStore.handleLogin} />
           </StyledInput>
-          <Link to='/signup'><a>Create an account</a></Link>
+          <Link to="/signup"> Create an account </Link>
         </StyledForm>
       </StyledDiv>
     );
