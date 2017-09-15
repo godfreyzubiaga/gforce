@@ -21,8 +21,8 @@ class BankService {
     }
 
     async patch(id, data, params) {
-        const {employer, employee, ammount} = data;
-        return await Bank.transferFunds(employer, employee, ammount);
+        const {employer, employee, amount} = data;
+        return await Bank.transferFunds(employer, employee, amount);
     }
 
     async update(id, data, params) {
@@ -43,4 +43,4 @@ export default function setupBankService(db) {
         service.before(before);
         service.after(after);
     }
-} 
+}
