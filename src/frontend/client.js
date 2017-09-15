@@ -1,6 +1,6 @@
 import feathers from 'feathers';
 import socketio from 'feathers-socketio';
-import io from 'socket.io-client';
+import nativeSocketio from 'socket.io-client';
 import hooks from 'feathers-hooks';
 import auth from 'feathers-authentication-client';
 import clientServices from './services';

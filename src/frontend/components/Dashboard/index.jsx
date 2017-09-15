@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from './Header';
-import Map from '../Map/Map';
+import Map from '../Map/index';
 
 const StyledDiv = styled.div`
   background: #FAFAFA;
