@@ -7,10 +7,11 @@ import RootStore from './stores/RootStore';
 import App from './components/App';
 import client from './client';
 import PaymentGateway from './components/PaymentGateway'
+
 const store = new RootStore(client);
 
 injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+  @import url('https://fonts.googleapis.com/css?family=Lobster|Open+Sans');
 
   body {
     margin: 0px;
@@ -33,7 +34,7 @@ ReactDOM.render(
     </Router>
   </Provider>,
   document.getElementById('mount-point'));
-{/* <App /> */}
+
 if (module.hot) {
   module.hot.accept();
 }
