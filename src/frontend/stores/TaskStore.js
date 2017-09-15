@@ -67,8 +67,10 @@ export default class TaskStore {
       employer: '5995c5c438070f179c609413',
       maxPrice,
       minPrice,
-      dateIssued: new Date(Date.now())
+      dateIssued: new Date(Date.now()),
+      image : this.store.userStore.currentUser.image
     };
+    console.log(this.store.userStore, ' da user store')
     await this.taskService.create(data);
   }
 
@@ -77,6 +79,8 @@ export default class TaskStore {
     this.store.viewStore.setModalView(true);
     this.setCurrentTask(task);
     console.log(this.currentTask);
+    console.log(this.store.userStore.currentUser, ' da curent user')
+    
   }
 
   @action.bound setCurrentTask(task) {
