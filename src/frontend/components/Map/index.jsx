@@ -20,13 +20,15 @@ const UserMarker = inject('store')(observer(({ lat, lng, name, props, store, tas
     onClick={() => store.onMarkerClick(task)}
   >
     <InfoWindow onCloseClick={props.onToggleOpen}>
-      <div onClick={async () => await store.taskStore.bid('1234567', 5, 500)}>
+      {/* <div onClick={async () => await store.taskStore.bid('1234567', 5, 500)}> */}
+      <div onClick={() => {
+        console.log(store.locationStore.coordinates, ' da coordinatesssss')
+      }}>
         {name}
       </div>
     </InfoWindow>
   </Marker >
 )))
-
 
 const MapContainer = inject('store')(observer((store, props) => (
   <GoogleMap
