@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
 import { injectGlobal } from 'styled-components';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import RootStore from './stores/RootStore';
 import App from './components/App';
 import client from './client';
-
+import Map from './components/Map/Map';
 const store = new RootStore(client);
 
 injectGlobal`
@@ -23,10 +24,15 @@ injectGlobal`
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+          <div>
+            <Route exact path="/" component={() => <App />} />
+            <Route path="/map" component={() => <Map />} />
+          </div>
+    </Router>
   </Provider>,
   document.getElementById('mount-point'));
-
+{/* <App /> */}
 if (module.hot) {
   module.hot.accept();
 }
