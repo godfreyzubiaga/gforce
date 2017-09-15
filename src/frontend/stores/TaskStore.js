@@ -60,11 +60,11 @@ export default class TaskStore {
   }
 
   @action.bound
-  async bid(userId, task, price) {
+  async bid(userId, task) {
     const data = {
       taskId: task._id,
       user: userId,
-      price,
+      price : task.price,
       date: new Date(Date.now())
     };
     console.log(data, ' da data')

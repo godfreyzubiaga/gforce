@@ -11,10 +11,8 @@ const host = location.host
 let url = `${'http'}://${location.host}`;
 if(window.cordova) {
     url = 'http://10.10.10.66:3000';
-    console.log(url, '======================================================================================================');
 }
 const socketConnection = nativeSocketio(url);
-console.log(url, '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
 const client = feathers();
 

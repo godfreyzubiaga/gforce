@@ -87,7 +87,8 @@ const Modal = ({ store }) => {
           <h3> Task Description: {store.taskStore.currentTask.description} </h3>
           <h4> Price: {store.taskStore.currentTask.price} </h4>
           <Flexed>
-            <StyledButton> Take this Task </StyledButton>
+            <StyledButton onClick={async () => await store.taskStore.bid(store.userStore.currentUser._id, store.taskStore.currentTask)}>
+               Take this Task </StyledButton>
             <CloseButton onClick={() => store.viewStore.setModalView(false)}> Close </CloseButton>
           </Flexed>
         </StyledModal>
