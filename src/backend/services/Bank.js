@@ -6,14 +6,21 @@ class BankService {
     constructor(db) {
         this.db = db;
     }
-
+    // return await this.db.collection('votes').insert(data);
     async create(data, params) {
-        return await Bank.createNewAccount(data.accountName);
-        // return await this.db.collection('bankDetails')
+        // own: bankAccountId employee, amount of transaction, 
+        // await this.db.collection('transactions').insert(data);
+        // return await Bank.createNewAccount(data.accountName);
+        const result = await Bank.createNewAccount(data.accountName);
+        const payload = {
+            accountNo : result[0].account_no,
+            _id : result._id
+        }
+        return await this.db.collection('transactions').insert(payload);
     }
 
     async find(params) {
-
+        return await this.db('transactions').find().toArray();
     }
             //account number
     async get(id, params) {
@@ -21,8 +28,8 @@ class BankService {
     }
 
     async patch(id, data, params) {
-        const {employer, employee, ammount} = data;
-        return await Bank.transferFunds(employer, employee, ammount);
+        const {employer, employee, amount} = data;
+        return await Bank.transferFunds(employer, employee, amount);
     }
 
     async update(id, data, params) {
@@ -43,4 +50,4 @@ export default function setupBankService(db) {
         service.before(before);
         service.after(after);
     }
-} 
+}
