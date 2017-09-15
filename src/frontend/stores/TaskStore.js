@@ -60,12 +60,14 @@ export default class TaskStore {
         await this.bidService.create(data);
     }
 
-    async postTask(description, minPrice, maxPrice) {
+    async postTask(description, minPrice, maxPrice, lat, lng) {
         const data = {
             description,
             employer: '5995c5c438070f179c609413',
             maxPrice,
             minPrice,
+            lat,
+            lng,
             dateIssued: new Date(Date.now())
         };
         await this.taskService.create(data);

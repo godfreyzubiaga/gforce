@@ -20,7 +20,10 @@ const UserMarker = inject('store')(observer(({ lat, lng, name, props, store }) =
     onClick={props.onToggleOpen}
   >
     <InfoWindow onCloseClick={props.onToggleOpen}>
-      <div onClick={async () => await store.taskStore.bid('1234567', 5, 500)}>
+      {/* <div onClick={async () => await store.taskStore.bid('1234567', 5, 500)}> */}
+      <div onClick={() => {
+                          console.log(store.locationStore.coordinates, ' da coordinatesssss')
+                          }}>
         {name}
       </div>
     </InfoWindow>
@@ -33,16 +36,6 @@ const markers = [
   { lat: 10.7139593, lng: 122.5516834, name: 'Li Arolf Rey' },
 ];
 
-const MapContainer = inject('store')(observer((store, props) => (
-    <GoogleMap
-    defaultCenter={{ lat: 10.7202, lng: 122.5621 }}
-    zoom={props.zoom}
-    ref={props.onMapMounted}
-    onZoomChanged={props.onZoomChanged}
-  >
-    {markers.map(marker => <UserMarker props={props} lat={marker.lat} lng={marker.lng} name={marker.name} key={uuidv1()} />)}
-  </GoogleMap>
-  )));
 
 const MapWithControlledZoom = compose(
   withProps({
