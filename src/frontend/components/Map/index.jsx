@@ -37,7 +37,7 @@ const MapWithControlledZoom = compose(
     containerElement: <div style={{ height: '850px' }} />,
     mapElement: <div style={{ height: `100%` }} />,
   }),
-  withState('zoom', 'onZoomChange', 20),
+  withState('zoom', 'onZoomChange', 12),
   withHandlers(() => {
     const refs = {
       map: undefined,

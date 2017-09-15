@@ -53,10 +53,10 @@ const MapWithControlledZoom = compose(
     ref={props.onMapMounted}
     onZoomChanged={props.onZoomChanged}
   >
-  <Marker
-    position={{ lat: 10.7202, lng: 122.5621 }}
-    onClick={() => store.taskStore.onModalClick(task)}
-   />
+    <Marker
+      position={{ lat: 10.7202, lng: 122.5621 }}
+      onClick={() => store.taskStore.onModalClick(task)}
+    />
   </GoogleMap>
 ));
 

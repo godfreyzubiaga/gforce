@@ -12,6 +12,7 @@ import ShowTask from './components/ShowTask';
 import Profile from './components/Profile';
 
 const store = new RootStore(client);
+window.store = store;
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Lobster|Open+Sans');

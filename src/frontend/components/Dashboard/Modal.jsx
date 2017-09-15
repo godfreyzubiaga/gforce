@@ -62,12 +62,14 @@ const StyledButton = styled.button`
   border: none;
   color: white;
   padding: 10px;
+  width: 250px;
 `
 
 const CloseButton = styled.button`
   border: none;
   background: lightcoral;
   font-size: 20px;
+  color: white;
 `
 
 const Flexed = styled.div`
@@ -87,7 +89,7 @@ const Modal = ({ store }) => {
           <h4> Price: {store.taskStore.currentTask.price} </h4>
           <Flexed>
             <StyledButton onClick={async () => await store.taskStore.bid(store.userStore.currentUser._id, store.taskStore.currentTask)}>
-               Take this Task </StyledButton>
+              Apply for this task! </StyledButton>
             <CloseButton onClick={() => store.viewStore.setModalView(false)}> Close </CloseButton>
           </Flexed>
         </StyledModal>
