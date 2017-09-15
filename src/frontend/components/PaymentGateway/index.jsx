@@ -11,7 +11,7 @@ class PaymentGateway extends React.Component {
     return (<div>
       <h1>Sanity Check</h1>
 
-      <div>Send <input type="text" value="100.00php" disabled /> to <input type="text" value="123456789012" disabled />?</div>
+      <div>Send <input type="text" value={this.props.store.paymentGatewayStore.amount} disabled /> to <input type="text" value={this.props.store.paymentGatewayStore.target} disabled />?</div>
       <div>
         <button
           type="button"
