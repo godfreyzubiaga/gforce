@@ -4,7 +4,8 @@
     "node": true,
     "mocha": true
   },
-  "extends": "eslint:recommended",
+  "plugins": ["react"],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "rules": {
     "indent": [
       "error",

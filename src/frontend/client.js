@@ -14,4 +14,6 @@ client.configure(socketio(socket));
 client.configure(auth({ storage: window.localStorage }));
 client.configure(clientServices());
 
+window.app = client;	//debug
+
 export default client;

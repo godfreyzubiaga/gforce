@@ -5,21 +5,20 @@ import local from 'feathers-authentication-local';
 function authentication() {
   return function execute() {
     const app = this;
-
-    app.configure(auth(app.get('auth')));
-    app.configure(local());
-    app.configure(jwt());
-
-    app.service('api/authentication').hooks({
-      before: {
-        create: [
-          auth.hooks.authenticate(['jwt', 'local']),
-        ],
-        remove: [
-          auth.hooks.authenticate('jwt'),
-        ],
-      },
-    });
+    const before = {
+      create: [
+        auth.hooks.authenticate(['jwt', 'local'])
+      ],
+      remove: [
+        auth.hooks.authenticate('jwt')
+      ]
+    };
+    app
+      .configure(auth(app.get('auth')))
+      .configure(local())
+      .configure(jwt());
+    app.service('/authentication')
+      .before(before);
   };
 }
 
