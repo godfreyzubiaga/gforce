@@ -8,8 +8,9 @@ class LocationStore {
     this.client = client;
   }
 
-  @action.bound onSucces(pos) {
+  @action.bound onSuccess(pos) {
     this.coordinates = pos.coords;
+    console.log(this.coordinates, ' da coords')
   }
 
   @action.bound onError(error) {

@@ -1,4 +1,4 @@
-import { observable, runInAction } from 'mobx';
+import { observable, runInAction, action } from 'mobx';
 
 export default class TaskStore {
     @observable tasks = [];
@@ -29,6 +29,7 @@ export default class TaskStore {
         });
         this.bidService.on('created', newBid => {
             this.bids.push(newBid);
+            console.log(newBid, ' da new bid')
         });
         this.bankService.on('created', newAccount => {
             console.log(newAccount, ' new Account');
@@ -37,6 +38,7 @@ export default class TaskStore {
 
     async fetchTasks() {
         this.tasks = await this.taskService.find();
+        console.log(this.tasks, ' da tankss')
     }
 
     async fetchBids() {
@@ -46,7 +48,7 @@ export default class TaskStore {
     async fetchUsers() {
         this.users = await this.userService.find();
     }
-
+    @action.bound
     async bid(userId, task, price) {
         const data = {
             taskId: task._id,
@@ -54,6 +56,7 @@ export default class TaskStore {
             price,
             date: new Date(Date.now())
         };
+        console.log(data, ' da data')
         await this.bidService.create(data);
     }
 

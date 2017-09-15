@@ -26,7 +26,7 @@
     "start:dev": "nodemon -r babel-register src/backend/index.js",
     "pack": "webpack",
     "pack:watch": "webpack --watch",
-    "seed": "node -r babel-register src/backend/seeds/seeds.js",
+    "seed": "node -r babel-register src/seeds/runSeeds.js",
     "test": "mocha --compilers js:babel-core/register test",
     "test:watch": "npm test -- --watch-extensions --watch",
     "commit": "git-cz"
