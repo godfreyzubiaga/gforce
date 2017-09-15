@@ -8,16 +8,16 @@ import socketio from 'feathers-socketio';
 import bodyParser from 'body-parser';
 import allServices from './services/index';
 
-import webpack from 'webpack';
-import webpackMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
-import webpackConfig from '../../webpack.config';
+// import webpack from 'webpack';
+// import webpackMiddleware from 'webpack-dev-middleware';
+// import webpackHotMiddleware from 'webpack-hot-middleware';
+// import webpackConfig from '../../webpack.config';
 
 const app = feathers();
-const compiler = webpack(webpackConfig);
+// const compiler = webpack(webpackConfig);
 
-app.use(webpackMiddleware(compiler));
-app.use(webpackHotMiddleware(compiler));
+// app.use(webpackMiddleware(compiler));
+// app.use(webpackHotMiddleware(compiler));
 
 app
 	.configure(configuration(process.cwd()))
