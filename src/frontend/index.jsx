@@ -28,6 +28,7 @@ ReactDOM.render(
           <div>
             <Route exact path="/" component={() => <App />} />
             <Route path="/map" component={() => <Map />} />
+            <Route path="/signup" component={() => <div>Singup Here!</div>} />
           </div>
     </Router>
   </Provider>,
