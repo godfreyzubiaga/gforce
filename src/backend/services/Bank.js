@@ -1,4 +1,5 @@
 import { ObjectId } from 'mongodb';
+import Bank from '../payment-gateway/UnionBank';
 
 class BankService {
 
@@ -6,27 +7,29 @@ class BankService {
         this.db = db;
     }
 
-    create(data, params) {
+    async create(data, params) {
+        return await Bank.createNewAccount(data.accountName);
+        // return await this.db.collection('bankDetails')
+    }
+
+    async find(params) {
+
+    }
+            //account number
+    async get(id, params) {
+        return await Bank.requestAccountDetails(id);
+    }
+
+    async patch(id, data, params) {
+        const {employer, employee, ammount} = data;
+        return await Bank.transferFunds(employer, employee, ammount);
+    }
+
+    async update(id, data, params) {
 
     }
 
-    find(params) {
-
-    }
-
-    get(id, params) {
-
-    }
-
-    patch(id, data, params) {
-
-    }
-
-    update() {
-
-    }
-
-    remove() {
+    async remove(id) {
 
     }
 }
