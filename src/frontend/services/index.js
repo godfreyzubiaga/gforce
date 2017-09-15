@@ -1,10 +1,10 @@
-import itemService from './item';
+// import itemService from './item';
 
 function setupClientServices() {
 	return function () {
 		const app = this;
 		app
-			.configure(itemService())
+			// .configure(itemService())
 	}
 }
 
