@@ -19,7 +19,7 @@ class UnionBank {
         'x-ibm-client-id': this.clientId },
       json: true,
     };
-    console.log(options, ' da options')
+    // console.log(options, ' da options')
     return await request(options);
   }
 
@@ -37,7 +37,7 @@ class UnionBank {
         'x-ibm-client-id': this.clientId },
       json: true,
     };
-    console.log(options, ' daa options')
+    // console.log(options, ' daa options')
     return await request(options);
   }
 
