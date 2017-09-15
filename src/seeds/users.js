@@ -8,7 +8,9 @@ const seed = async () => {
         {
             _id : ObjectId('5995c5c438070f179c609413'),
             name : 'Brent Antohny Tudas',
-            rating : 7,
+            reputation : 7,
+            age : 19,
+            phoneNumber : '09088617324',
             address : "Tabuc Suba",
             username: 'Btuds',
             password: 'anthony',
@@ -17,7 +19,9 @@ const seed = async () => {
         {
             _id : ObjectId('5995c5c438070f179c609411'),
             name : 'Li Arolf Rey',
-            rating : 4,
+            reputation : 4,
+            age : 19,
+            phoneNumber : '09088617324',
             address : "Marco Polo",
             username: 'Lili',
             password: 'arolf',
@@ -26,7 +30,9 @@ const seed = async () => {
         {
             _id : ObjectId('5995c5c438070f179c609412'),
             name : 'Glyda Mae Torres',
-            rating : 6,
+            reputation : 6,
+            age : 19,
+            phoneNumber : '09088617324',
             address : "Grandxing",
             username: 'glyda',
             password: 'mae',
