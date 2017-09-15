@@ -1,5 +1,5 @@
 import { observable, action } from 'mobx';
-// import client from '../client';
+import client from '../client';
 
 class PaymentGatewayStore {
 
