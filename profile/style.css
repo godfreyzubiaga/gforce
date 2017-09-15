@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: 'Varela Round', sans-serif;
+ 
+}
+
+.header {
+  background: #5D85A8;
+  height: 60px;
+  text-align: center;  
+}
+
+a {
+  line-height: 60px;
+  font-size: 2em;
+  text-decoration: none;
+  color: white;
+  margin-left: -37px;
+}
+
+#menu {
+  float: left;
+  margin-left: 5px;
+  padding: 5px;
+  margin-top: 8px;
+  display: inline-flex;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#details, #displayPic {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#displayPic {
+  background: #ABD3E4;
+  padding: 10px;
+}
+
+#displayPic > img {
+  width: 200px;
+  height: 200px;
+  background: white;
+  border-radius: 50%;
+}
