@@ -5,6 +5,11 @@ export default class TaskStore {
     @observable bids = [];
     @observable users = [];
     @observable transactions = [];
+    @observable values = {
+      taskName: '',
+      description: '',
+      budget: '',
+    }
     userService;
     taskService;
     bidService;
@@ -36,6 +41,10 @@ export default class TaskStore {
         });
     }
 
+    @action.bound setValue(event) {
+      this.values[event.target.id] = event.target.value;
+    }
+
     async fetchTasks() {
         this.tasks = await this.taskService.find();
         console.log(this.tasks, ' da tankss')
@@ -60,16 +69,15 @@ export default class TaskStore {
         await this.bidService.create(data);
     }
 
-    async postTask(description, minPrice, maxPrice, lat, lng) {
-        const data = {
-            description,
-            employer: '5995c5c438070f179c609413',
-            maxPrice,
-            minPrice,
-            lat,
-            lng,
-            dateIssued: new Date(Date.now())
-        };
-        await this.taskService.create(data);
+    @action.bound
+    async postTask(event) {
+        event.preventDefault();
+        this.values.dateAdded = new Date();
+        try {
+          await this.taskService.create(this.values);
+          alert('Task added successfully!');
+        } catch (e) {
+          alert('There was an error in submitting the task, please try again.');
+        }
     }
 }
