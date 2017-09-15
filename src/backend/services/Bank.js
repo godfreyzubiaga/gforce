@@ -8,7 +8,7 @@ class BankService {
     }
     // return await this.db.collection('votes').insert(data);
     async create(data, params) {
-        // own: bankAccountId employee, amount of transaction, 
+        // own: bankAccountId employee, amount of transaction,
         // await this.db.collection('transactions').insert(data);
         // return await Bank.createNewAccount(data.accountName);
         const result = await Bank.createNewAccount(data.accountName);
@@ -29,7 +29,7 @@ class BankService {
 
     async patch(id, data, params) {
         const {employer, employee, amount} = data;
-        return await Bank.transferFunds(employer, employee, amount);
+        return await Bank.initiatePayment(employer, employee, amount);
     }
 
     async update(id, data, params) {

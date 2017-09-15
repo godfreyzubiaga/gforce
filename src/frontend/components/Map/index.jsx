@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { compose, withProps, withState, withHandlers } from "recompose";
 // import {observer, inject} from 'mobx-react';
 // import FaAnchor from "react-icons/lib/fa/ancho";
@@ -65,10 +64,7 @@ const MapWithControlledZoom = compose(
     ref={props.onMapMounted}
     onZoomChanged={props.onZoomChanged}
   >  
-    {markers.map((marker, index) => 
-    <Link to={`/task-${index}`}>
-      <UserMarker props={props} lat={marker.lat} lng={marker.lng} name={marker.name} />
-    </Link>)}
+    {markers.map((marker, index) => <UserMarker props={props} lat={marker.lat} lng={marker.lng} name={marker.name} />)}
   </GoogleMap>
 );
 

@@ -6,8 +6,7 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import RootStore from './stores/RootStore';
 import App from './components/App';
 import client from './client';
-import Map from './components/Map/Map';
-import Profile from './components/Profile';
+import PaymentGateway from './components/PaymentGateway'
 const store = new RootStore(client);
 
 injectGlobal`
@@ -23,42 +22,13 @@ injectGlobal`
   }
 `;
 
-//to be an observable in store, from db
-const tasks = [
-  {
-    _id : '5995c5c438070f179c609451',
-    description : 'Wash Dishes',
-    employer : 'Brent',
-    dateIssued : new Date('2017-7-14'),
-    minPrice : 300,
-    maxPrice : 1000,
-  }, 
-  {
-      _id : '5995c5c438070f179c609452',
-      description : 'Do Laundry',
-      employer : 'Li',
-      dateIssued : new Date('2017-8-11'),
-      minPrice : 200,
-      maxPrice : 500,
-  },
-  {
-      _id : '5995c5c438070f179c609453',
-      description : 'Buy Groceries',
-      employer : 'Gly',
-      dateIssued : new Date('2017-11-24'),
-      minPrice : 450,
-      maxPrice : 800,
-  }
-]
-
 ReactDOM.render(
   <Provider store={store}>
     <Router>
       <div>
         <Route exact path="/" component={() => <App />} />
-        <Route path="/map" component={() => <Map />} />
         <Route path="/signup" component={() => <div>Singup Here!</div>} />
-        {tasks.map((task, index)=> <Route path={`/task-${index}`} component={() => <Profile task={task}/>} />)}
+        <Route path="/payment-gateway" component={() => <PaymentGateway />} />
       </div>
     </Router>
   </Provider>,

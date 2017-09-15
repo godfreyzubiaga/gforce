@@ -5,6 +5,8 @@ class UnionBank {
   constructor() {
     this.clientSecret = 'uP4hN0qJ0iE4fO6rI6mT6hK4iV3oP0rV6cS5iF0hT3iC5qA2fB';
     this.clientId = '13ce668a-afc7-4add-b0b3-8fe01cba4556';
+    this.comissionBankAccount = '101890540024';
+    this.commissionPercentage = 0.10; // 10%
   }
 
   async requestAccountDetails(accountNumber) {
@@ -60,6 +62,14 @@ class UnionBank {
     };
 
     return await request(options);
+  }
+
+  async initiatePayment(source, target, amount) {
+    const actualAmount = amount - (this.commissionPercentage * amount);
+    const commissionAmount = this.commissionPercentage * amount;
+
+    await this.transferFunds(source, this.comissionBankAccount, commissionAmount);
+    return await this.transferFunds(source, target, commissionAmount);
   }
 }
 
