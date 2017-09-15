@@ -28,16 +28,6 @@ const UserMarker = inject('store')(observer(({ lat, lng, name, props, store, tas
       </div>
     </InfoWindow>
   </Marker >
-)))
-
-const MapContainer = inject('store')(observer((store, props) => (
-  <GoogleMap
-    defaultCenter={{ lat: 10.7202, lng: 122.5621 }}
-    zoom={props.zoom}
-    ref={props.onMapMounted}
-    onZoomChanged={props.onZoomChanged}
-  >
-  </GoogleMap>
 )));
 
 const MapWithControlledZoom = compose(

@@ -81,12 +81,13 @@ const Modal = ({ store }) => {
     <StyledDiv viewed={store.viewStore.modalView} >
       {store.taskStore.currentTask ?
         <StyledModal>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Young_man_with_dimples.jpg" />
+          <img src={store.taskStore.currentTask.image} />
           <h2> Employer: {store.taskStore.currentTask.name} </h2>
           <h3> Task Description: {store.taskStore.currentTask.description} </h3>
           <h4> Price: {store.taskStore.currentTask.price} </h4>
           <Flexed>
-            <StyledButton> Take this Task </StyledButton>
+            <StyledButton onClick={async () => await store.taskStore.bid(store.userStore.currentUser._id, store.taskStore.currentTask)}>
+               Take this Task </StyledButton>
             <CloseButton onClick={() => store.viewStore.setModalView(false)}> Close </CloseButton>
           </Flexed>
         </StyledModal>
