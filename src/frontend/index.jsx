@@ -6,6 +6,7 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import RootStore from './stores/RootStore';
 import App from './components/App';
 import client from './client';
+import PaymentGateway from './components/PaymentGateway'
 const store = new RootStore(client);
 
 injectGlobal`
@@ -26,6 +27,7 @@ ReactDOM.render(
     <Router>
           <div>
             <Route exact path="/" component={() => <App />} />
+            <Route path="/payment-gateway" component={() => <PaymentGateway />} />
             <Route path="/signup" component={() => <div>Singup Here!</div>} />
           </div>
     </Router>
