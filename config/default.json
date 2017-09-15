@@ -1,9 +1,12 @@
 {
-  "host": "localhost",
-  "port": 3030,
-  "public": "../public/",
-  "paginate": {
-    "default": 10,
-    "max": 50
+  "mongoURI": "mongodb://localhost:27017/hackathon",
+  "port": 3000,
+  "auth": {
+    "secret": "thisisasupersecret",
+    "service": "users",
+    "local": {
+      "usernameField": "\\username",
+      "idField": "_id"
+    }
   }
 }

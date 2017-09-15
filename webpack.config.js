@@ -1,38 +1,54 @@
-const webpack = require('webpack');
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: [
     'react-hot-loader/patch',
-    'webpack-hot-middleware/client?http://localhost:3030/',
-    './app/index.js',
+    'webpack-hot-middleware/client?http://localhost:3000/',
+    './src/frontend/index.jsx',
   ],
   output: {
-    path: path.resolve(__dirname, 'public'),
-    publicPath: '/',
+    path: path.join(process.cwd(), '/public/js/'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+  ],
   module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_module/,
-        use: [
-          { loader: 'react-hot-loader/webpack' },
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['es2015', 'react', 'stage-2'],
-              plugins: ['react-hot-loader/babel'],
-            },
+    rules: [{
+      test: /\.jsx?$/,
+      use: [
+        { loader: 'babel-loader' },
+      ],
+      exclude:
+      /node_modules/,
+    }, {
+      test: /\.(png|jpg|gif)$/,
+      use: [
+        {
+          loader: 'url-loader',
+        }],
+    }, {
+      test: /\.scss$/,
+      use: [
+        {
+          loader: 'style-loader',
+        },
+        {
+          loader: 'css-loader',
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            includePaths: ['./node_modules'],
           },
-        ],
-      },
+        },
+      ],
+    }
     ],
   },
   resolve: {
-    modules: ['node_modules', path.resolve(__dirname, 'app')],
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.scss', '.css'],
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
 };
