@@ -12,7 +12,6 @@ const seed = async () => {
             dateIssued : new Date('2017-7-14'),
             minPrice : 300,
             maxPrice : 1000,
-            bids : []
         }, 
         {
             _id : ObjectId('5995c5c438070f179c609452'),
@@ -21,7 +20,6 @@ const seed = async () => {
             dateIssued : new Date('2017-8-11'),
             minPrice : 200,
             maxPrice : 500,
-            bids : []
         },
         {
             _id : ObjectId('5995c5c438070f179c609453'),
@@ -30,7 +28,6 @@ const seed = async () => {
             dateIssued : new Date('2017-11-24'),
             minPrice : 450,
             maxPrice : 800,
-            bids : []
         }
         
     ]

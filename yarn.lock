@@ -2594,12 +2594,12 @@ feathers-errors@^2.0.1, feathers-errors@^2.2.0, feathers-errors@^2.4.0, feathers
   dependencies:
     debug "^2.2.0"
 
-feathers-hooks-common@^3.6.1:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/feathers-hooks-common/-/feathers-hooks-common-3.6.1.tgz#c9839b3f0ac7b5e355a07fe561bedcc1560ebef8"
+feathers-hooks-common@^3.7.2:
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/feathers-hooks-common/-/feathers-hooks-common-3.7.2.tgz#d2f2b5f2eaf04a7d4732c8749fcfa2a9ab8297dd"
   dependencies:
     ajv "^5.2.0"
-    debug "^2.2.0"
+    debug "^3.0.0"
     feathers-errors "^2.4.0"
     feathers-hooks "^2.0.1"
     traverse "^0.6.6"

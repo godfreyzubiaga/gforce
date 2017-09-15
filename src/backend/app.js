@@ -31,6 +31,8 @@ app
 const server = async () => {
 	const db = await MongoClient.connect(app.get('mongoURI'));
 	app.configure(allServices(db));
+	// const x = await app.service('/users').find();
+	// console.log(x, ' da tasks')
 	return app;
 };
 
