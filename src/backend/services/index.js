@@ -8,10 +8,11 @@ function setupAllServices(db) {
   return function execute() {
     const app = this;
     app
+      .configure(authentication())
       .configure(userService(db))
       .configure(bidService(db))
       .configure(taskService(db))
-      
+
   };
 }
 
