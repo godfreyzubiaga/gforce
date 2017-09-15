@@ -5,14 +5,13 @@
       {
         "targets": {
           "browsers": [
-            "last 2 versions"
+            "last 2 Chrome versions"
           ]
-        },
-        "node": true
+        }
       }
     ],
-    "react",
-    "stage-2"
+    "stage-1",
+    "react"
   ],
   "plugins": [
     "transform-decorators-legacy",
