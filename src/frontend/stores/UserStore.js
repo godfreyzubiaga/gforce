@@ -7,13 +7,16 @@ class UserStore {
   constructor(rootStore, client) {
     this.store = rootStore;
     this.client = client;
+    this.setUser();
+    
   }
 
   @action.bound async setUser() {
     try {
       const user = await this.client.get('user');
       this.updateUser(user);
-      this.isAuthenticated(true);
+      console.log(user, 'adas134')
+      this.isAuthenticated = true;
     } catch (error) {
       console.log(error);
     }

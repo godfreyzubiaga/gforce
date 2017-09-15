@@ -48,7 +48,6 @@ export default class TaskStore {
 
     async fetchTasks() {
         this.tasks = await this.taskService.find();
-        console.log(this.tasks, ' da tankss')
     }
 
   async fetchBids() {

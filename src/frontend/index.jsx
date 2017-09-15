@@ -8,6 +8,8 @@ import App from './components/App';
 import client from './client';
 import PaymentGateway from './components/PaymentGateway';
 import AddTask from './components/AddTask';
+import ShowTask from './components/ShowTask';
+import Profile from './components/Profile';
 
 const store = new RootStore(client);
 
@@ -31,7 +33,8 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route path="/payment-gateway/:source/:target/:amount" component={PaymentGateway} />
         <Route path="/add-task" component={AddTask} />
-        {/* <Route path="/profile" component={Profile} /> */}
+        <Route path="/profile" component={Profile} />
+        <Route path="/transactions" component={ShowTask} />
       </div>
     </Router>
   </Provider>,
