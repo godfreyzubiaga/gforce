@@ -4,6 +4,7 @@ export default class TaskStore {
     @observable tasks = [];
     @observable bids = [];
     @observable users = [];
+    @observable transactions = [];
     userService;
     taskService;
     bidService;
@@ -23,14 +24,12 @@ export default class TaskStore {
         this.taskService = this.app.service('/api/tasks');
         this.bidService = this.app.service('/api/bids');
         this.bankService = this.app.service('/api/bank');
-        console.log(this.bankService, ' da bankService')
         this.taskService.on('created', newTask => {
             this.tasks.push(newTask);
         });
         this.bidService.on('created', newBid => {
             this.bids.push(newBid);
         });
-
         this.bankService.on('created', newAccount => {
             console.log(newAccount, ' new Account');
         });
