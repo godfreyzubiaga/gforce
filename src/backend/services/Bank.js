@@ -8,12 +8,14 @@ class BankService {
     }
 
     async create(data, params) {
+        // own: bankAccountId employee, amount of transaction, 
+        await this.db('transactions').create(data);
         return await Bank.createNewAccount(data.accountName);
         // return await this.db.collection('bankDetails')
     }
 
     async find(params) {
-
+        return await this.db('transactions').find().toArray();
     }
             //account number
     async get(id, params) {
