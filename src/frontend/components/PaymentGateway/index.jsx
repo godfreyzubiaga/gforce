@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { inject } from 'mobx-react';
-import {StyledContainer, StyledComponent, StyledHeader, StyledDiv, StyledField, StyledMenu, StyledSubmit} from './style.js';
+import {StyledContainer, StyledComponent, StyledHeader, PaymentContainer, StyledField, StyledMenu, StyledSubmit, StyledDiv} from './style.js';
 
 @inject('store')
 class PaymentGateway extends React.Component {
@@ -10,13 +10,14 @@ class PaymentGateway extends React.Component {
     const { store: { paymentGatewayStore } } = this.props;
     return (
       <div>
-        <StyledDiv>
-          <StyledHeader>
+        <StyledHeader>
             <StyledMenu>
               <img src="../assets/menu.png" alt="menu" />
             </StyledMenu>
             <a href="#">Facewoof</a>
           </StyledHeader>
+        <StyledDiv>
+        <PaymentContainer>
           <StyledContainer>
             <h2>Payment Confirmation</h2>
             <span>Amount</span>
@@ -42,6 +43,7 @@ class PaymentGateway extends React.Component {
               <input type="submit" name="submit" value="Confirm" onclick="confirm('Please confirm your transaction')" />
             </StyledSubmit>
           </StyledContainer>
+        </PaymentContainer>
         </StyledDiv>
       </div>
     );
