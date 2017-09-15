@@ -24,7 +24,7 @@ const Profile = inject("store")(
             <p> Age : {age} </p>
             <p> Phone Number : {phoneNumber} </p>
             <p> Reputation : {reputation} </p>
-            <span>My balance: </span> &#8369; <span>999</span>
+            <span>My balance: </span> &#8369; <span>{store.paymentGatewayStore.balance}</span>
           </div>
         </div>
       </div>
