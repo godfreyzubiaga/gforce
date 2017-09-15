@@ -61,7 +61,7 @@ const MapWithControlledZoom = compose(
     ref={props.onMapMounted}
     onZoomChanged={props.onZoomChanged}
   >
-    {store.taskStore.tasks.map(marker => <UserMarker props={props} task={marker} lat={marker.lat} lng={marker.lng} name={marker.name} key={uuidv1()} />)}
+    {store.taskStore.activeTasks.map(marker => <UserMarker props={props} task={marker} lat={marker.lat} lng={marker.lng} name={marker.name} key={uuidv1()} />)}
   </GoogleMap>
 ));
 

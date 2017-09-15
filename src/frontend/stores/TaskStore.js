@@ -1,4 +1,4 @@
-import { observable, runInAction, action } from 'mobx';
+import { observable, runInAction, action, computed } from 'mobx';
 
 export default class TaskStore {
     @observable tasks = [];
@@ -94,5 +94,13 @@ export default class TaskStore {
 
   @action.bound setCurrentTask(task) {
     this.currentTask = task;
+  }
+
+  @computed get activeTasks() {
+    return this.tasks.filter(task => task.active);
+  }
+
+  @computed get activeTasksLength() {
+    return this.tasks.length;
   }
 }

@@ -14,8 +14,8 @@ const seed = async () => {
             lat: 10.7139343,
             lng: 122.5516674,
             name: 'Brent Anthony Tudas',
-            image : 'https://i.pinimg.com/736x/1f/41/6d/1f416d98179f0c22180e98ca9ab6d697--mens-hairstyles-hot-pink.jpg',
-            active : true,
+            active: true,
+            image: 'https://i.pinimg.com/736x/1f/41/6d/1f416d98179f0c22180e98ca9ab6d697--mens-hairstyles-hot-pink.jpg',
         },
         {
             _id: ObjectId('5995c5c438070f179c609452'),
@@ -26,8 +26,8 @@ const seed = async () => {
             lat: 10.7139453,
             lng: 122.5516734,
             name: 'Glyda Mae Torres',
-            image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSA2C6Fzcu0ke2UPXdBJQ8jzRSHvVNlBZ09aJnuicpbE3JskmXX_G1_vc',
-            active : true,
+            active: true,
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSA2C6Fzcu0ke2UPXdBJQ8jzRSHvVNlBZ09aJnuicpbE3JskmXX_G1_vc',
         },
         {
             _id: ObjectId('5995c5c438070f179c609453'),
@@ -38,8 +38,8 @@ const seed = async () => {
             lat: 10.7139593,
             lng: 122.5516834,
             name: 'Li Arolf Rey',
-            image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_xxGmekR7YkpfXgN_uexg_7gT6pLHwY4jNSiHEflViLM1K0ec',
-            active : true,
+            active: true,
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_xxGmekR7YkpfXgN_uexg_7gT6pLHwY4jNSiHEflViLM1K0ec',
         },
         {
             _id: ObjectId('5995c5c438070f179c609458'),
@@ -50,8 +50,8 @@ const seed = async () => {
             lat: 10.7139693,
             lng: 122.5516934,
             name: 'Anthony Davis',
-            image : 'https://i.pinimg.com/736x/1f/41/6d/1f416d98179f0c22180e98ca9ab6d697--mens-hairstyles-hot-pink.jpg',
-            active : true,
+            active: true,
+            image: 'https://i.pinimg.com/736x/1f/41/6d/1f416d98179f0c22180e98ca9ab6d697--mens-hairstyles-hot-pink.jpg',
         },
 
     ]
