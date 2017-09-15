@@ -17,9 +17,9 @@ class Sidebar extends React.Component {
   render() {
     return (
       <Menu styles={styles}>
-        <StyledA id="home" className="menu-item" href="/">Home</StyledA>
-        <StyledA id="about" className="menu-item" href="/about">About</StyledA>
-        <StyledA id="contact" className="menu-item" href="/contact">Contact</StyledA>
+        <StyledA id="home" className="menu-item" href="/">Profile</StyledA>
+        <StyledA id="about" className="menu-item" href="/about">Add Task</StyledA>
+        <StyledA id="contact" className="menu-item" href="/contact"></StyledA>
         <StyledA onClick={this.showSettings} className="menu-item--small" href="">Settings</StyledA>
       </Menu>
     );
