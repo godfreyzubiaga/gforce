@@ -14,28 +14,35 @@ import client from '../../client';
 
 const store = new RootStore(client);
 
-const UserMarker = inject('store')(observer(({ lat, lng, name, props, store }) => (
+const UserMarker = inject('store')(observer(({ lat, lng, name, props, store, task }) => (
   <Marker
     position={{ lat: lat, lng: lng }}
-    onClick={props.onToggleOpen}
+<<<<<<< HEAD
+    onClick={() => store.onMarkerClick(task)}
+=======
+    onClick={() => store.taskStore.onModalClick(task)}
+>>>>>>> test
   >
     <InfoWindow onCloseClick={props.onToggleOpen}>
       {/* <div onClick={async () => await store.taskStore.bid('1234567', 5, 500)}> */}
       <div onClick={() => {
-                          console.log(store.locationStore.coordinates, ' da coordinatesssss')
-                          }}>
+        console.log(store.locationStore.coordinates, ' da coordinatesssss')
+      }}>
         {name}
       </div>
     </InfoWindow>
-  </Marker>
+  </Marker >
 )))
 
-const markers = [
-  { lat: 10.7139343, lng: 122.5516674, name: 'Brent Anthony Tudas' },
-  { lat: 10.7139453, lng: 122.5516734, name: 'Glyda Mae Torres' },
-  { lat: 10.7139593, lng: 122.5516834, name: 'Li Arolf Rey' },
-];
-
+const MapContainer = inject('store')(observer((store, props) => (
+  <GoogleMap
+    defaultCenter={{ lat: 10.7202, lng: 122.5621 }}
+    zoom={props.zoom}
+    ref={props.onMapMounted}
+    onZoomChanged={props.onZoomChanged}
+  >
+  </GoogleMap>
+)));
 
 const MapWithControlledZoom = compose(
   withProps({
@@ -61,17 +68,21 @@ const MapWithControlledZoom = compose(
   }),
   withScriptjs,
   withGoogleMap
-  )(observer(props =>
+)(observer(props =>
   <GoogleMap
     defaultCenter={{ lat: 10.7202, lng: 122.5621 }}
     zoom={props.zoom}
     ref={props.onMapMounted}
     onZoomChanged={props.onZoomChanged}
   >
-    {store.taskStore.tasks.map(marker => <UserMarker props={props} lat={marker.lat} lng={marker.lng} name={marker.name} key={uuidv1()} />)}
+<<<<<<< HEAD
+    {store.taskStore.tasks.map(task => <UserMarker task={task} props={props} lat={marker.lat} lng={marker.lng} name={marker.name} key={uuidv1()} />)}
+=======
+    {store.taskStore.tasks.map(marker => <UserMarker props={props} task={marker} lat={marker.lat} lng={marker.lng} name={marker.name} key={uuidv1()} />)}
+>>>>>>> test
   </GoogleMap>
-  ));
+));
 
-  
+
 
 export default MapWithControlledZoom;
