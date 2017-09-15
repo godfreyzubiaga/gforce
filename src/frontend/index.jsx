@@ -7,6 +7,7 @@ import RootStore from './stores/RootStore';
 import App from './components/App';
 import client from './client';
 import Map from './components/Map/Map';
+import PaymentGateway from './components/PaymentGateway'
 const store = new RootStore(client);
 
 injectGlobal`
@@ -28,6 +29,7 @@ ReactDOM.render(
           <div>
             <Route exact path="/" component={() => <App />} />
             <Route path="/map" component={() => <Map />} />
+            <Route path="/payment-gateway" component={() => <PaymentGateway />} />
             <Route path="/signup" component={() => <div>Singup Here!</div>} />
           </div>
     </Router>
