@@ -1,19 +1,19 @@
-import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
 import { HashRouter as Router, Route } from 'react-router-dom';
-import './assets/scss/index.scss';
+import RootStore from './stores/RootStore';
+import client from './client';
 
-const stores = { };
+const store = new RootStore(client);
 
 ReactDOM.render(
-  <Provider {...stores}>
+  <Provider store={store}>
     <Router>
-    <div>
-      <Route exact path="/" component={() => <div> TEST12 </div>} />
-    </div>
-</Router>
+      <div>
+        <Route exact path="/" component={() => <div> TEST12 </div>} />
+      </div>
+    </Router>
   </Provider>,
   document.getElementById('mount-point'));
 
