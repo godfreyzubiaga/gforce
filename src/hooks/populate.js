@@ -1,5 +1,6 @@
 const setData = async(specifiedData, service, foreignProp, localProp, nameAs) => {
   const data = specifiedData[localProp];
+  // console.log(data, ' da data')
   const queryItem = data instanceof Array ? { $in: data } : data;
   const foreignData = await service.find({
     query: {
