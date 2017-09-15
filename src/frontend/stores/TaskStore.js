@@ -72,9 +72,17 @@ export default class TaskStore {
     await this.taskService.create(data);
   }
 
+<<<<<<< HEAD
   @action.bound onMarkerClick(task) {
     this.setCurrentTask(task);
     this.store.viewStore.showUserModal();
+=======
+  @action.bound onModalClick(task) {
+    console.log(task);
+    this.store.viewStore.setModalView(true);
+    this.setCurrentTask(task);
+    console.log(this.currentTask);
+>>>>>>> test
   }
 
   @action.bound setCurrentTask(task) {

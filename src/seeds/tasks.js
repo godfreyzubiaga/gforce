@@ -10,8 +10,7 @@ const seed = async () => {
             description: 'Wash Dishes',
             employer: ObjectId('5995c5c438070f179c609411'),
             dateIssued: new Date('2017-7-14'),
-            minPrice: 300,
-            maxPrice: 1000,
+            price: 700,
             lat: 10.7139343,
             lng: 122.5516674,
             name: 'Brent Anthony Tudas'
@@ -33,7 +32,6 @@ const seed = async () => {
             employer: ObjectId('5995c5c438070f179c609411'),
             dateIssued: new Date('2017-11-24'),
             minPrice: 450,
-            maxPrice: 800,
             lat: 10.7139593,
             lng: 122.5516834,
             name: 'Li Arolf Rey'
@@ -43,8 +41,7 @@ const seed = async () => {
             description: 'Deliver Me Food',
             employer: ObjectId('5995c5c438070f179c609411'),
             dateIssued: new Date('2017-11-24'),
-            minPrice: 450,
-            maxPrice: 800,
+            price: 400,
             lat: 10.7139693,
             lng: 122.5516934,
             name: 'Anthony Davis'
