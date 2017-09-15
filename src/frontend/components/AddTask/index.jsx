@@ -11,9 +11,10 @@ import client from '../../client';
 const store = new RootStore(client);
 
 @inject('store')
-class PaymentGateway extends React.Component {
+class AddTask extends React.Component {
   constructor(props) {
     super(props);
+    this.store = store.taskStore;
   }
 
   showMap() {
@@ -31,23 +32,23 @@ class PaymentGateway extends React.Component {
             <h2>Create New Task</h2>
             <StyledFields>
               Task name
-        <br />
-              <input type="text" name="taskName" placeholder="Task Name" />
+              <br />
+              <input type="text" id="taskName" name="taskName" placeholder="Task Name" onChange={this.store.setValue} />
             </StyledFields>
             <StyledFields>
               Task description
-        <br />
-              <textarea name="description" rows="5" cols="30"></textarea>
+            <br />
+              <textarea id="description" name="description" rows="5" cols="30" onChange={this.store.setValue}></textarea>
             </StyledFields>
             <StyledFields>
               Budget
-        <br /> (&#8369;)
-        <br />
-              <input type="text" name="budget" placeholder="999" />
+            <br /> (&#8369;)
+            <br />
+              <input type="text" id="budget" name="budget" placeholder="999" onChange={this.store.setValue} />
             </StyledFields>
             <StyledFields>
               Location
-        <br />
+              <br />
               <br />
               <SelectLocationStyle>
                 <a onClick={this.showMap}>Select Location</a>
@@ -57,7 +58,7 @@ class PaymentGateway extends React.Component {
             <br />
             <StyledFields>
               <SubmitStyle>
-                <a type="submit" name="submit">Submit</a>
+                <a type="submit" name="submit" onClick={this.store.postTask}>Submit</a>
               </SubmitStyle>
             </StyledFields>
           </AddTaskContainer>
@@ -67,4 +68,4 @@ class PaymentGateway extends React.Component {
   }
 }
 
-export default PaymentGateway;
+export default AddTask;
