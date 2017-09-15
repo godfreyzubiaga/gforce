@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { inject } from 'mobx-react';
-// import { Link } from 'react-router-dom';
 import { StyledDiv, StyledInput, StyledForm } from './style.js';
 
 @inject('store')
