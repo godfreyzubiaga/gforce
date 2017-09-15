@@ -8,10 +8,12 @@ const authenticated = true;
 @inject('store') @observer
 class App extends React.Component {
   componentDidMount() {
+    const { store: { userStore } } = this.props;
 
   }
 
   render() {
+    const { store: { userStore } } = this.props;
     return (
       <div>
         {

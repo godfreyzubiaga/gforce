@@ -8,26 +8,26 @@ const seed = async () => {
         {
             _id : ObjectId('5995c5c438070f179c609413'),
             name : 'Brent Antohny Tudas',
-            tasks : [],
-            bids : [],
             rating : 7,
-            address : "Tabuc Suba"
+            address : "Tabuc Suba",
+            username: 'Btuds',
+            password: 'anthony',
         },
         {
             _id : ObjectId('5995c5c438070f179c609411'),
             name : 'Li Arolf Rey',
-            tasks : [],
-            bids : [],
             rating : 4,
-            address : "Marco Polo"
+            address : "Marco Polo",
+            username: 'Lili',
+            password: 'arolf',
         },
         {
             _id : ObjectId('5995c5c438070f179c609412'),
             name : 'Glyda Mae Torres',
-            tasks : [],
-            bids : [],
             rating : 6,
-            address : "Grandxing"
+            address : "Grandxing",
+            username: 'glyda',
+            password: 'mae',
         }
     ]
 

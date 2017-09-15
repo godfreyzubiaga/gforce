@@ -1,6 +1,7 @@
 import React from 'react';
-import Header from './Header';
 import styled from 'styled-components';
+import Header from './Header';
+import Map from '../Map';
 
 const StyledDiv = styled.div`
   background: #FAFAFA;
@@ -12,6 +13,7 @@ class Dashboard extends React.Component {
     return (
       <StyledDiv>
         <Header />
+        <Map />
       </StyledDiv>
     );
   }
