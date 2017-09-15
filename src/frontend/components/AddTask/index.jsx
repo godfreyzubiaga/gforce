@@ -7,6 +7,7 @@ import Header from '../Dashboard/Header';
 import Sidebar from '../Dashboard/Sidebar';
 import RootStore from '../../stores/RootStore';
 import client from '../../client';
+import Map from './Map';
 
 const store = new RootStore(client);
 
@@ -50,9 +51,7 @@ class AddTask extends React.Component {
               Location
               <br />
               <br />
-              <SelectLocationStyle>
-                <a onClick={this.showMap}>Select Location</a>
-              </SelectLocationStyle>
+              <Map />
             </StyledFields>
             <br />
             <br />
