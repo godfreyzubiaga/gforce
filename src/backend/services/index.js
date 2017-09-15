@@ -3,6 +3,7 @@ import bidService from './bids';
 import taskService from './tasks';
 import userService from './users';
 import bankService from './Bank';
+import transactionService from './transaction';
 import reviewService from './reviews';
 
 function setupAllServices(db) {
@@ -14,6 +15,7 @@ function setupAllServices(db) {
       .configure(bidService(db))
       .configure(taskService(db))
       .configure(bankService(db))
+      .configure(transactionService(db))
       .configure(reviewService(db))
 
   };
