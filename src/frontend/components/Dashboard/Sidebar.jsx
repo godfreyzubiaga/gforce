@@ -2,8 +2,9 @@ import React from 'react';
 import { slide as Menu } from 'react-burger-menu'
 import styles from './styles';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const StyledA = styled.a`
+const StyledA = styled(Link)`
   text-decoration: none !important;
   margin-bottom: 7px;
   color: #333;
@@ -17,10 +18,10 @@ class Sidebar extends React.Component {
   render() {
     return (
       <Menu styles={styles}>
-        <StyledA id="home" className="menu-item" href="/">Profile</StyledA>
-        <StyledA id="about" className="menu-item" href="/about">Add Task</StyledA>
-        <StyledA id="contact" className="menu-item" href="/contact"></StyledA>
-        <StyledA onClick={this.showSettings} className="menu-item--small" href="">Settings</StyledA>
+        <StyledA to="/profile">Profile</StyledA>
+        <StyledA to="/add-task">Add Task</StyledA>
+        <StyledA to="/transactions">Transactions</StyledA>
+        <StyledA to="/">Logout</StyledA>
       </Menu>
     );
   }
