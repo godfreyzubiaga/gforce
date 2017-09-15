@@ -2,6 +2,7 @@ import { observable, action } from 'mobx';
 
 class ViewStore {
   @observable sideBarOpen = true;
+  @observable taskModalView = true;
 
   constructor(rootStore) {
     this.store = rootStore;
@@ -9,6 +10,10 @@ class ViewStore {
 
   @action.bound onSetSidebarOpen(bool) {
     this.sideBarOpen = bool;
+  }
+
+  @action.bound showTaskModal() {
+    this.taskModalView = true;
   }
 }
 
