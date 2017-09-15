@@ -24,7 +24,6 @@ export default class TaskStore {
         this.taskService = this.app.service('/api/tasks');
         this.bidService = this.app.service('/api/bids');
         this.bankService = this.app.service('/api/bank');
-        console.log(this.bankService, ' da bankService')
         this.taskService.on('created', newTask => {
             this.tasks.push(newTask);
         });
