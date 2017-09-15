@@ -42,6 +42,7 @@ class AuthStore {
       await this.client.logout();
       this.client.set('user', undefined);
       this.store.userStore.omitUser();
+
     } catch (error) {
       console.log('LOGOUT_FAILED');
       console.log(error);

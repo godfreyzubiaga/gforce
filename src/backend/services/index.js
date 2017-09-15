@@ -4,6 +4,7 @@ import taskService from './tasks';
 import userService from './users';
 import bankService from './Bank';
 import transactionService from './transaction';
+import reviewService from './reviews';
 
 function setupAllServices(db) {
   return function execute() {
@@ -15,6 +16,8 @@ function setupAllServices(db) {
       .configure(taskService(db))
       .configure(bankService(db))
       .configure(transactionService(db))
+      .configure(reviewService(db))
+
   };
 }
 
