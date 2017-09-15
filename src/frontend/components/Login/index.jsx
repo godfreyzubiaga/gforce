@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { StyledDiv, StyledInput, StyledForm } from './style.js';
 
 class Login extends React.Component {
@@ -21,7 +22,7 @@ class Login extends React.Component {
           <StyledInput>
             <input type="submit" name="Login" value="Login" />
           </StyledInput>
-          <a href="./signup.html">Create an account</a>
+          <Link to='/signup'><a>Create an account</a></Link>
         </StyledForm>
       </StyledDiv>
     );
