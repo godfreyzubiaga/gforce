@@ -28,7 +28,7 @@ ReactDOM.render(
     <Router>
       <div>
         <Route exact path="/" component={App} />
-        <Route path="/payment-gateway" component={PaymentGateway} />
+        <Route path="/payment-gateway/:source/:target/:amount" component={PaymentGateway} />
       </div>
     </Router>
   </Provider>,
