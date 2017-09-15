@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import Map from '../Map';
+import Modal from './Modal';
 
 const StyledDiv = styled.div`
   background: #FAFAFA;
@@ -16,6 +17,7 @@ class Dashboard extends React.Component {
         <Header />
         <Sidebar />
         <Map />
+        <Modal />
       </StyledDiv>
     );
   }
