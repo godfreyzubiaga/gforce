@@ -63,4 +63,5 @@ class UnionBank {
   }
 }
 
-export default UnionBank;
+const store = new UnionBank();
+export default store;
