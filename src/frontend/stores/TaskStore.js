@@ -1,7 +1,6 @@
 import { observable, runInAction } from 'mobx';
 
 export default class TaskStore {
-
     @observable tasks = [];
     @observable bids = [];
     @observable users = [];
@@ -18,7 +17,7 @@ export default class TaskStore {
         this.fetchUsers();
         this.fetchTasks();
         this.fetchBids();
-      }
+    }
 
     initialize() {
         this.userService = this.app.service('/users');
@@ -51,10 +50,10 @@ export default class TaskStore {
 
     async bid(userId, task, price) {
         const data = {
-            taskId : task._id,
-            user : userId,
+            taskId: task._id,
+            user: userId,
             price,
-            date : new Date(Date.now())
+            date: new Date(Date.now())
         };
         await this.bidService.create(data);
     }
@@ -62,10 +61,10 @@ export default class TaskStore {
     async postTask(description, minPrice, maxPrice) {
         const data = {
             description,
-            employer : '5995c5c438070f179c609413',
+            employer: '5995c5c438070f179c609413',
             maxPrice,
             minPrice,
-            dateIssued : new Date(Date.now())
+            dateIssued: new Date(Date.now())
         };
         await this.taskService.create(data);
     }
