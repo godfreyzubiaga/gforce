@@ -30,3 +30,5 @@ ReactDOM.render(
 if (module.hot) {
   module.hot.accept();
 }
+
+window.app = client;
