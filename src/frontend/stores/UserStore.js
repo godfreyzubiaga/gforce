@@ -2,7 +2,7 @@ import { observable, action } from 'mobx';
 
 class UserStore {
   @observable currentUser;
-  @observable isAuthenticated;
+  @observable isAuthenticated = false;
 
   constructor(rootStore, client) {
     this.store = rootStore;

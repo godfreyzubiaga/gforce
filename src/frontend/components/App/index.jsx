@@ -3,7 +3,7 @@ import { inject, observer } from 'mobx-react';
 import Dashboard from '../Dashboard';
 import Login from '../Login';
 
-const authenticated = true;
+// const authenticated = false;
 
 @inject('store') @observer
 class App extends React.Component {
@@ -17,7 +17,7 @@ class App extends React.Component {
     return (
       <div>
         {
-          authenticated ? <Dashboard /> : <Login />
+          userStore.isAuthenticated ? <Dashboard /> : <Login />
         }
       </div>
     );
