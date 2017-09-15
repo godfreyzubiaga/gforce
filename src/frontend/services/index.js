@@ -1,11 +1,7 @@
-// import itemService from './item';
-
 function setupClientServices() {
-	return function () {
-		const app = this;
-		app
-			// .configure(itemService())
-	}
+  return function () {
+    const app = this;
+  };
 }
 
 export default setupClientServices;

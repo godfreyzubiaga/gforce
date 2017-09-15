@@ -7,37 +7,59 @@ class UnionBank {
     this.clientId = '13ce668a-afc7-4add-b0b3-8fe01cba4556';
   }
 
-  requestAccountDetails(accountNumber) {
+  async requestAccountDetails(accountNumber) {
     const options = {
       method: 'GET',
       url: `https://api-uat.unionbankph.com/hackathon/sb/accounts/${accountNumber}`,
       headers:
       { accept: 'application/json',
         'x-ibm-client-secret': this.clientSecret,
-        'x-ibm-client-id': this.clientId }
+        'x-ibm-client-id': this.clientId },
+      json: true,
     };
 
-    return this.send(options);
+    return await request(options);
   }
 
-  createNewAccount() {
+  async createNewAccount(accountName) {
     const options = {
       method: 'POST',
       url: 'https://api-uat.unionbankph.com/hackathon/sb/test/accounts',
+      body: {
+        accountName: accountName,
+      },
       headers:
       { accept: 'application/json',
-        'content-type': 'application/json',
+        'Content-Type': 'application/json',
         'x-ibm-client-secret': this.clientSecret,
-        'x-ibm-client-id': this.clientId }
+        'x-ibm-client-id': this.clientId },
+      json: true,
     };
 
-    return this.send(options);
+    return await request(options);
   }
 
-  async send(options) {
-    const response = await request(options);
-    const jsonify = JSON.parse(response);
-    return jsonify;
+  async transferFunds(source, target, amount) {
+    const options = {
+      method: 'POST',
+      url: 'https://api-uat.unionbankph.com/hackathon/sb/transfers/initiate',
+      body: {
+        'channel_id': 'GForce',
+        'transaction_id': new Date().getTime().toString(),
+        'source_account': source,
+        'source_currency': 'PHP',
+        'target_account': target,
+        'target_currency': 'PHP',
+        'amount': amount },
+      headers:
+      { accept: 'application/json',
+        'Content-Type': 'application/json',
+        'x-ibm-client-secret': this.clientSecret,
+        'x-ibm-client-id': this.clientId },
+      json: true,
+    };
+
+    return await request(options);
   }
 }
 

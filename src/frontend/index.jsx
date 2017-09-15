@@ -1,19 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { injectGlobal } from 'styled-components';
 import RootStore from './stores/RootStore';
+import App from './components/App';
 import client from './client';
 
 const store = new RootStore(client);
 
+injectGlobal`
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+  body {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+  }
+`;
+
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <div>
-        <Route exact path="/" component={() => <div> TEST12 </div>} />
-      </div>
-    </Router>
+    <App />
   </Provider>,
   document.getElementById('mount-point'));
 
