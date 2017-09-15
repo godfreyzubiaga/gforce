@@ -6,7 +6,6 @@ const StyledDiv = styled.div`
   width: 100%;
   height: 50px;
   position: absolute;
-  z-index: 99999;
   top: 550px;
   margin: auto;
   display: flex;
