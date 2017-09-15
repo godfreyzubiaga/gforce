@@ -1,12 +1,12 @@
 import React from 'react';
-import { inject, observer} from 'mobx-react';
-import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
+import { inject, observer } from 'mobx-react';
+import { SortableContainer, SortableElement, arrayMove } from 'react-sortable-hoc';
 import client from '../../client';
 
 
-const SortableItem = SortableElement(({value}) => <li>{value}</li>);
+const SortableItem = SortableElement(({ value }) => <li>{value}</li>);
 
-const SortableList = SortableContainer(({items}) => {
+const SortableList = SortableContainer(({ items }) => {
   return (
     <ul>
       {items.map((value, index) => (
@@ -15,24 +15,15 @@ const SortableList = SortableContainer(({items}) => {
     </ul>
   );
 });
-@inject('store')@observer
+@inject('store') @observer
 export default class SortableComponent extends React.Component {
-    constructor(props) {
-        super(props)
-        this.store = props.store;
-        console.log(this.store.userStore.currentUser.bids.slice(), '123')
-    }
-  state = {
-    items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6'],
-  };
-  onSortEnd = ({oldIndex, newIndex}) => {
-      {console.log(store.userStore.currentUser, ' si ikaw')}
-    this.setState({
-    //   items: arrayMove(store.userStore.currentUser.bids, oldIndex, newIndex),
-    items : this.store.userStore.currentUser.bids
-    });
-  };
+  constructor(props) {
+    super(props)
+    this.store = props.store;
+  }
+
   render() {
-    return <SortableList items={this.store.userStore.currentUser.bids} onSortEnd={this.onSortEnd} />;
+    const items = this.store.userStore.currentUser.bids.map(bid => `${bid.user.name} - Rep: ${bid.user.reputation}`);
+    return <SortableList items={items} onSortEnd={this.onSortEnd} />;
   }
 }

@@ -55,10 +55,10 @@ export default class TaskStore {
 
   async fetchUsers() {
     this.users = await this.userService.find();
+    // console.log('bids', this.users[1].bids[0])
   }
 
-  @action.bound
-  async bid(userId, task) {
+  @action.bound async bid(userId, task) {
     const data = {
       taskId: task._id,
       user: userId,
@@ -70,8 +70,7 @@ export default class TaskStore {
     this.store.viewStore.setModalView(false);
   }
 
-  @action.bound
-  async postTask(event) {
+  @action.bound async postTask(event) {
     event.preventDefault();
     this.values.dateIssued = new Date();
     this.values.active = true;
@@ -84,8 +83,12 @@ export default class TaskStore {
       const res = await this.taskService.create(this.values);
       this.addTask(res);
       alert('You created a task for people to see!');
-    } catch (e) {
-      alert('There was an error in submitting the task, please try again.');
+      try {
+        await this.taskService.create(this.values);
+        alert('Task added successfully!');
+      } catch (e) {
+        alert('There was an error in submitting the task, please try again.');
+      }
     }
   }
 
@@ -93,7 +96,8 @@ export default class TaskStore {
     console.log(task);
     this.store.viewStore.setModalView(true);
     this.setCurrentTask(task);
-
+    console.log(this.currentTask);
+    console.log(this.store.userStore.currentUser, ' da curent user')
   }
 
   @action.bound setCurrentTask(task) {

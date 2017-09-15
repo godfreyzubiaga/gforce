@@ -22,6 +22,7 @@ class UserStore {
 
   @action updateUser(newUser) {
     this.currentUser = newUser;
+    this.currentUser.bids.map(bid => bid.user = this.store.taskStore.users.find(user => user._id === bid.user)); //populates user in bids
   }
 
   @action omitUser() {
