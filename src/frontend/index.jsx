@@ -7,10 +7,11 @@ import RootStore from './stores/RootStore';
 import App from './components/App';
 import client from './client';
 import PaymentGateway from './components/PaymentGateway'
+
 const store = new RootStore(client);
 
 injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+  @import url('https://fonts.googleapis.com/css?family=Lobster|Open+Sans');
 
   body {
     margin: 0px;
@@ -25,15 +26,14 @@ injectGlobal`
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-          <div>
-            <Route exact path="/" component={() => <App />} />
-            <Route path="/payment-gateway" component={() => <PaymentGateway />} />
-            <Route path="/signup" component={() => <div>Singup Here!</div>} />
-          </div>
+      <div>
+        <Route exact path="/" component={() => <App />} />
+        <Route path="payment-gateway" component={() => <PaymentGateway/>} />
+      </div>
     </Router>
   </Provider>,
   document.getElementById('mount-point'));
-{/* <App /> */}
+
 if (module.hot) {
   module.hot.accept();
 }
