@@ -77,7 +77,6 @@ const Flexed = styled.div`
 `
 
 const Modal = ({ store }) => {
-  console.log(store.taskStore.currentTask, ' POTATO IS NOT DEFINED');
   return (
     <StyledDiv viewed={store.viewStore.modalView} >
       {store.taskStore.currentTask ?

@@ -17,11 +17,7 @@ const store = new RootStore(client);
 const UserMarker = inject('store')(observer(({ lat, lng, name, props, store, task }) => (
   <Marker
     position={{ lat: lat, lng: lng }}
-<<<<<<< HEAD
-    onClick={() => store.onMarkerClick(task)}
-=======
     onClick={() => store.taskStore.onModalClick(task)}
->>>>>>> test
   >
     <InfoWindow onCloseClick={props.onToggleOpen}>
       {/* <div onClick={async () => await store.taskStore.bid('1234567', 5, 500)}> */}
@@ -75,11 +71,7 @@ const MapWithControlledZoom = compose(
     ref={props.onMapMounted}
     onZoomChanged={props.onZoomChanged}
   >
-<<<<<<< HEAD
-    {store.taskStore.tasks.map(task => <UserMarker task={task} props={props} lat={marker.lat} lng={marker.lng} name={marker.name} key={uuidv1()} />)}
-=======
-    {store.taskStore.tasks.map(marker => <UserMarker props={props} task={marker} lat={marker.lat} lng={marker.lng} name={marker.name} key={uuidv1()} />)}
->>>>>>> test
+    {store.taskStore.activeTasks.map(marker => <UserMarker props={props} task={marker} lat={marker.lat} lng={marker.lng} name={marker.name} key={uuidv1()} />)}
   </GoogleMap>
 ));
 

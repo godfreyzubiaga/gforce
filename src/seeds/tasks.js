@@ -13,7 +13,8 @@ const seed = async () => {
             price: 700,
             lat: 10.7139343,
             lng: 122.5516674,
-            name: 'Brent Anthony Tudas'
+            name: 'Brent Anthony Tudas',
+            active: true,
         },
         {
             _id: ObjectId('5995c5c438070f179c609452'),
@@ -24,7 +25,8 @@ const seed = async () => {
             maxPrice: 500,
             lat: 10.7139453,
             lng: 122.5516734,
-            name: 'Glyda Mae Torres'
+            name: 'Glyda Mae Torres',
+            active: true,
         },
         {
             _id: ObjectId('5995c5c438070f179c609453'),
@@ -34,7 +36,8 @@ const seed = async () => {
             minPrice: 450,
             lat: 10.7139593,
             lng: 122.5516834,
-            name: 'Li Arolf Rey'
+            name: 'Li Arolf Rey',
+            active: true,
         },
         {
             _id: ObjectId('5995c5c438070f179c609458'),
@@ -44,7 +47,8 @@ const seed = async () => {
             price: 400,
             lat: 10.7139693,
             lng: 122.5516934,
-            name: 'Anthony Davis'
+            name: 'Anthony Davis',
+            active: true,
         },
 
     ]
