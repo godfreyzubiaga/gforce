@@ -18,11 +18,9 @@ class AuthStore {
 
   @action async authenticate(credentials) {
     try {
-			const result = await this.client.authenticate(credentials);
-			console.log(result)
+      const result = await this.client.authenticate(credentials);
       const payload = await this.client.passport.verifyJWT(result.accessToken);
-			const user = await this.client.service('users').get(payload.userId)
-			console.log('user',user)
+      const user = await this.client.service('users').get(payload.userId)
       await this.client.set('user', user);
       this.store.userStore.setUser();
     } catch (error) {
@@ -46,6 +44,15 @@ class AuthStore {
       this.store.userStore.omitUser();
     } catch (error) {
       console.log('LOGOUT_FAILED');
+      console.log(error);
+    }
+    this.resetValues();
+  }
+
+  @action.bound async handleRegister() {
+    try {
+      const user = await app.service('users').create(this.values);
+    } catch (error) {
       console.log(error);
     }
     this.resetValues();
