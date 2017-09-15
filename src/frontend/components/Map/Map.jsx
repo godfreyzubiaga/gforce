@@ -16,7 +16,7 @@ const UserMarker = ({lat, lng, name, props}) => (
       onClick={props.onToggleOpen}
     >
       <InfoWindow onCloseClick={props.onToggleOpen}>
-        <div onClick={() => console.log('modal should open')}>
+        <div onClick={() => console.log(`${name} Profile`)}>
           {/* <FaAnchor /> */}
           { name }
           {/* Controlled zoom: {props.zoom} */}
@@ -63,9 +63,7 @@ const MapWithControlledZoom = compose(
     zoom={props.zoom}
     ref={props.onMapMounted}
     onZoomChanged={props.onZoomChanged}
-  >
-  
-  
+  >  
     {markers.map(marker => <UserMarker props={props} lat={marker.lat} lng={marker.lng} name={marker.name} />)}
   </GoogleMap>
 );

@@ -7,7 +7,7 @@ function setupTaskService(db) {
   const afterHook = {
     // find : [identifierHook('/api/bids', 'bids', 'taskId', '_id')],
     // get : [identifierHook('/api/bids', 'bids', '_id', 'taskId')],
-    find : [populateHook('/api/bids', 'taskId', '_id', 'tasks')]
+    find : [populateHook('/api/bids', 'taskId', '_id', 'bids')]
   };
   return setupService(db, "/api/tasks", "tasks", beforeHook, afterHook);
 }

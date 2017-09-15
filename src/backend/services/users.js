@@ -15,7 +15,9 @@ function setupUserService(db) {
     ],
   };
   const afterHook = {
-    find: [populateHook('/api/bids', 'user', '_id', 'bids'), populateHook('/api/tasks', 'employer', '_id', 'tasks')],
+    find: [populateHook('/api/bids', 'user', '_id', 'bids'),
+     populateHook('/api/tasks', 'employer', '_id', 'tasks'),
+     populateHook('/api/reviews', 'user', '_id', '')],
     get: [populateHook('/api/bids', 'user', '_id', 'bids'), populateHook('/api/tasks', 'employer', '_id', 'tasks')],
   };
   return setupService(db, "/users", "users", beforeHook, afterHook);
