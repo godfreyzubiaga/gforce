@@ -2,21 +2,45 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { inject } from 'mobx-react';
-import {StyledContainer, StyledComponent, StyledHeader, StyledDiv, StyledField, StyledMenu, StyledSubmit} from './style.js';
+import {StyledContainer, StyledComponent, StyledHeader, PaymentContainer, StyledField, StyledMenu, StyledSubmit, StyledDiv} from './style.js';
+import Header from '../Dashboard/Header';
+import Sidebar from '../Dashboard/Sidebar';
+import RootStore from '../../stores/RootStore';
+import client from '../../client';
+
+const store = new RootStore(client);
 
 @inject('store')
 class PaymentGateway extends React.Component {
+  constructor(props) {
+    super(props);
+    this.source = props.match.params.source;
+    this.target = props.match.params.target;
+    this.amount = props.match.params.amount;
+  }
+
+  async confirmAction() {
+    let confirmResponse = confirm('Please confirm your transaction');
+
+    if (confirmResponse) {
+      const response = await store.paymentGatewayStore.confirm(this.source, this.target, this.amount);
+      if (response.error_message !== '') {
+        alert('Payment failed!');
+      } else {
+        alert('Payment successful!');
+      }
+    } else {
+      // do nothing
+    }
+  }
+
   render() {
-    const { store: { paymentGatewayStore } } = this.props;
     return (
       <div>
+        <Header />
+        <Sidebar />
         <StyledDiv>
-          <StyledHeader>
-            <StyledMenu>
-              <img src="../assets/menu.png" alt="menu" />
-            </StyledMenu>
-            <a href="#">Facewoof</a>
-          </StyledHeader>
+        <PaymentContainer>
           <StyledContainer>
             <h2>Payment Confirmation</h2>
             <span>Amount</span>
@@ -24,7 +48,7 @@ class PaymentGateway extends React.Component {
             <br />
             <div>
               <StyledField>
-                <input type="text" disabled value="amount" />
+                <input type="text" disabled value={this.amount} />
               </StyledField>
               <br />
               <span>Transaction charge* = <strong>10%</strong></span>
@@ -35,13 +59,14 @@ class PaymentGateway extends React.Component {
             <br /> (Account Number)
             <br />
             <StyledField>
-              <input type="text" disabled value="acctNumber" />
+              <input type="text" disabled value={this.target} />
             </StyledField>
             <br />
             <StyledSubmit>
-              <input type="submit" name="submit" value="Confirm" onclick="confirm('Please confirm your transaction')" />
+              <input type="submit" name="submit" value="Confirm" onClick={this.confirmAction} />
             </StyledSubmit>
           </StyledContainer>
+        </PaymentContainer>
         </StyledDiv>
       </div>
     );

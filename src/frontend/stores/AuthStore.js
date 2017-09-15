@@ -22,7 +22,6 @@ class AuthStore {
       const payload = await this.client.passport.verifyJWT(result.accessToken);
       const user = await this.client.service('users').get(payload.userId)
       if (user) {
-        console.log(this, 'defuta')
         this.store.userStore.setAuthenticated(true);
       }
       await this.client.set('user', user);

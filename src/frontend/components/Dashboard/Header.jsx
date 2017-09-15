@@ -18,7 +18,7 @@ const StyledSpan = styled.span`
 
 const Header = () => (
   <StyledDiv>
-    <StyledSpan> Standby </StyledSpan>
+    <StyledSpan> Stand.bye </StyledSpan>
   </StyledDiv>
 );
 

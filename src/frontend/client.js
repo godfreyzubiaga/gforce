@@ -7,10 +7,10 @@ import clientServices from './services';
 
 
 const host = location.host
-const protocol = host.startsWith('local') ? 'http' : 'https';
-let url = `${protocol}://${location.host}`;
+// const protocol = host.startsWith('local') ? 'http' : 'https';
+let url = `${'http'}://${location.host}`;
 if(window.cordova) {
-    url = 'http://192.168.1.100:8000';
+    url = 'http://10.10.10.66:3000';
 }
 const socketConnection = nativeSocketio(url);
 

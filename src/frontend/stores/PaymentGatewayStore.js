@@ -5,18 +5,15 @@ class PaymentGatewayStore {
   constructor(rootStore, client) {
     this.store = rootStore;
     this.client = client;
-
-    this.source = '100595513256'; // rave
-    this.target = '100059817726'; // noren
-    this.amount = '500';
   }
 
-  @action.bound async confirm() {
+  @action.bound async confirm(source, target, amount) {
     const response = await client.service('api/bank').patch('', {
-      employer: this.source,
-      employee: this.target,
-      amount: this.amount,
+      employer: source,
+      employee: target,
+      amount: amount,
     })
+    return response;
     console.log(response);
   }
 }

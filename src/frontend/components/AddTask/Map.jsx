@@ -19,14 +19,6 @@ const UserMarker = inject('store')(observer(({ lat, lng, name, props, store, tas
     position={{ lat: lat, lng: lng }}
     onClick={() => store.taskStore.onModalClick(task)}
   >
-    <InfoWindow onCloseClick={props.onToggleOpen}>
-      {/* <div onClick={async () => await store.taskStore.bid('1234567', 5, 500)}> */}
-      <div onClick={() => {
-        console.log(store.locationStore.coordinates, ' da coordinatesssss')
-      }}>
-        {name}
-      </div>
-    </InfoWindow>
   </Marker >
 )));
 
@@ -34,7 +26,7 @@ const MapWithControlledZoom = compose(
   withProps({
     googleMapURL: "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: '850px' }} />,
+    containerElement: <div style={{ height: '400px' }} />,
     mapElement: <div style={{ height: `100%` }} />,
   }),
   withState('zoom', 'onZoomChange', 20),
@@ -61,7 +53,10 @@ const MapWithControlledZoom = compose(
     ref={props.onMapMounted}
     onZoomChanged={props.onZoomChanged}
   >
-    {store.taskStore.activeTasks.map(marker => <UserMarker props={props} task={marker} lat={marker.lat} lng={marker.lng} name={marker.name} key={uuidv1()} />)}
+  <Marker
+    position={{ lat: 10.7202, lng: 122.5621 }}
+    onClick={() => store.taskStore.onModalClick(task)}
+   />
   </GoogleMap>
 ));
 

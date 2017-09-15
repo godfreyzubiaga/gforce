@@ -6,7 +6,8 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import RootStore from './stores/RootStore';
 import App from './components/App';
 import client from './client';
-import PaymentGateway from './components/PaymentGateway'
+import PaymentGateway from './components/PaymentGateway';
+import AddTask from './components/AddTask';
 
 const store = new RootStore(client);
 
@@ -27,9 +28,10 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <div>
-        <Route exact path="/" component={() => <App />} />
-        <Route path="/signup" component={() => <div>Singup Here!</div>} />
-        <Route path="/payment-gateway" component={() => <PaymentGateway />} />
+        <Route exact path="/" component={App} />
+        <Route path="/payment-gateway/:source/:target/:amount" component={PaymentGateway} />
+        <Route path="/add-task" component={AddTask} />
+        {/* <Route path="/profile" component={Profile} /> */}
       </div>
     </Router>
   </Provider>,

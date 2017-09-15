@@ -8,26 +8,35 @@ const seed = async () => {
         {
             _id : ObjectId('5995c5c438070f179c609413'),
             name : 'Brent Antohny Tudas',
-            rating : 7,
+            reputation : 7,
+            age : 19,
+            phoneNumber : '09088617324',
             address : "Tabuc Suba",
             username: 'Btuds',
             password: 'anthony',
+            image : 'https://i.pinimg.com/736x/1f/41/6d/1f416d98179f0c22180e98ca9ab6d697--mens-hairstyles-hot-pink.jpg'
         },
         {
             _id : ObjectId('5995c5c438070f179c609411'),
             name : 'Li Arolf Rey',
-            rating : 4,
+            reputation : 4,
+            age : 19,
+            phoneNumber : '09088617324',
             address : "Marco Polo",
             username: 'Lili',
             password: 'arolf',
+            image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_xxGmekR7YkpfXgN_uexg_7gT6pLHwY4jNSiHEflViLM1K0ec'
         },
         {
             _id : ObjectId('5995c5c438070f179c609412'),
             name : 'Glyda Mae Torres',
-            rating : 6,
+            reputation : 6,
+            age : 19,
+            phoneNumber : '09088617324',
             address : "Grandxing",
             username: 'glyda',
             password: 'mae',
+            image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSA2C6Fzcu0ke2UPXdBJQ8jzRSHvVNlBZ09aJnuicpbE3JskmXX_G1_vc'
         }
     ]
 
