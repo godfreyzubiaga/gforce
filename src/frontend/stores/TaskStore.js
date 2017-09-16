@@ -114,4 +114,9 @@ export default class TaskStore {
   @computed get activeTasksLength() {
     return this.tasks.length;
   }
+
+  @action.bound selectEmployee(user) {
+    this.selectedEmployee = user;
+    console.log('e',this.selectedEmployee)
+  }
 }

@@ -38,7 +38,7 @@ export default class SortableComponent extends React.Component {
             <div>
               <p>Potential Employees:</p>
               {task.bids.map(bid =>
-                <div onClick={() => console.log('hello!')}>
+                <div onClick={() => this.store.taskStore.selectEmployee(bid.user)}>
                   {bid.user.name} - Rep: {bid.user.reputation}
                 </div>
               )}
