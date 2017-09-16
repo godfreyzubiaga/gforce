@@ -20,8 +20,9 @@ class Sidebar extends React.Component {
     const { store: { authStore } } = this.props;
     return (
       <Menu styles={styles}>
+        <StyledA to="/">Home</StyledA>
         <StyledA to="/profile">Profile</StyledA>
-        <StyledA to="/add-task">Add Task</StyledA>
+        <StyledA to="/add-task">Create Task</StyledA>
         <StyledA to="/transactions">Transactions</StyledA>
         <StyledA to="/" onClick={authStore.handleLogout}>Logout</StyledA>
       </Menu>

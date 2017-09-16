@@ -8,7 +8,6 @@ class UserStore {
     this.store = rootStore;
     this.client = client;
     this.setUser();
-
   }
 
   @action.bound async setUser() {

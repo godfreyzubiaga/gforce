@@ -14,7 +14,7 @@ const StyledComponent = styled.div`
 `
 
 const AddTaskContainer = styled.div`
-  width: 50%;
+  width: 80%;
   text-align: center;
 
   input, textarea {
@@ -24,10 +24,11 @@ const AddTaskContainer = styled.div`
     border-radius: 3px;
     border: none;
     border: 1px solid lightgray;
+    font-size: 15px;
   }
 `
 const StyledFields = styled.div`
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 `
 
 const SelectLocationStyle = styled.div`

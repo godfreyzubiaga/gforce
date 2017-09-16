@@ -1,21 +1,21 @@
 const styles = {
-    header : {
+    header: {
         background: '#5D85A8',
         height: '60px',
         textAlign: 'center'
     },
-    body : {
+    body: {
         margin: '0',
         fontFamily: 'Varela Round',
     },
-    a : {
+    a: {
         lineHeight: '60px',
         fontSize: '2em',
         textDecoration: 'none',
         color: 'white',
         marginLeft: '-37px'
     },
-    menu : {
+    menu: {
         float: 'left',
         marginLeft: '5px',
         padding: '5px',
@@ -24,17 +24,17 @@ const styles = {
         borderRadius: '5px',
         cursor: 'pointer'
     },
-    details : {
+    details: {
         fontSize: '1.5em',
-        textAlign: 'center'
+        textAlign: 'center',
     },
-    displayPic : {
+    displayPic: {
         fontSize: '1.5em',
         textAlign: 'center',
         background: '#ABD3E4',
         padding: '10px'
     },
-    img : {
+    img: {
         width: '200px',
         height: '200px',
         background: 'white',
