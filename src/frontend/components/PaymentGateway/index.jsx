@@ -6,24 +6,26 @@ import {StyledContainer, StyledComponent, StyledHeader, PaymentContainer, Styled
 import Header from '../Dashboard/Header';
 import Sidebar from '../Dashboard/Sidebar';
 import RootStore from '../../stores/RootStore';
-import client from '../../client';
 
-const store = new RootStore(client);
+// import client from '../../client';
+// const store = new RootStore(client);
 
 @inject('store')
 class PaymentGateway extends React.Component {
   constructor(props) {
     super(props);
+    this.props = props
     this.source = props.match.params.source;
     this.target = props.match.params.target;
     this.amount = props.match.params.amount;
+    this.confirmAction = this.confirmAction.bind(this);
   }
 
   async confirmAction() {
     let confirmResponse = confirm('Please confirm your transaction');
 
     if (confirmResponse) {
-      const response = await store.paymentGatewayStore.confirm(this.source, this.target, this.amount);
+      const response = await this.props.store.paymentGatewayStore.confirm(this.source, this.target, this.amount);
       if (response.error_message !== '') {
         alert('Payment failed!');
       } else {

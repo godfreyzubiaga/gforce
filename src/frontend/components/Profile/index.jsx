@@ -6,7 +6,8 @@ import Sidebar from '../Dashboard/Sidebar';
 
 const Profile = inject("store")(
   observer(({ store }) => {
-    const {image, name, reputation, age, phoneNumber} = store.userStore.currentUser;
+    const {image, name, reputation, age, phoneNumber, accountNumber} = store.userStore.currentUser;
+    store.paymentGatewayStore.getBalance(accountNumber)
     return (
       <div>
         <Header />
@@ -24,7 +25,7 @@ const Profile = inject("store")(
             <p> Age : {age} </p>
             <p> Phone Number : {phoneNumber} </p>
             <p> Reputation : {reputation} </p>
-            <span>My balance: </span> &#8369; <span>{store.paymentGatewayStore.balance}</span>
+            <span>My UNIONBANK Balance: </span> &#8369; <span>{store.paymentGatewayStore.balance}</span>
           </div>
         </div>
       </div>
