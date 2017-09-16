@@ -33,7 +33,11 @@ export default class TaskStore {
     this.taskService.on('created', newTask => {
       this.tasks.push(newTask);
     }).on('patched', updatedTask => {
-      console.log('patch', updatedTask)
+    this.store.userStore.currentUser.tasks.forEach(task => {
+        if (task._id === updatedTask._id) {
+          task.employeeId === updatedTask._id
+        }
+      })
     });
     this.bidService.on('created', newBid => {
       this.bids.push(newBid);
@@ -46,6 +50,10 @@ export default class TaskStore {
 
   @action.bound setValue(event) {
     this.values[event.target.id] = event.target.value;
+  }
+
+  @computed get currentTasks () {
+    return this.tasks.filter(task => task.employeeId === this.store.userStore.currentUser._id);
   }
 
   async fetchTasks() {
@@ -77,12 +85,15 @@ export default class TaskStore {
     this.values.dateIssued = new Date();
     this.values.active = true;
     this.store.locationStore.getCoordinates();
-    this.values.lng = this.store.locationStore.coordinates.longitude;
-    this.values.lat = this.store.locationStore.coordinates.latitude;
+    // this.values.lng =  this.store.locationStore.coordinates.longitude;
+    this.values.lng = 10.7202;
+    // this.values.lat = this.store.locationStore.coordinates.latitude;
+    this.values.lat = 122.5621;
     this.values.employerName = this.store.userStore.currentUser.name;
     this.values.image = this.store.userStore.currentUser.image;
     const res = await this.taskService.create(this.values);
     this.addTask(res);
+    console.log(res);
     alert('You created a task for people to see!');
     try {
       await this.taskService.create(this.values);

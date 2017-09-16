@@ -77,8 +77,6 @@ const StyledSubmit = styled.div`
 const StyledContainer = styled.div`
 .container > span {
   font-size: 1.8em;
-}
-
-`
+}`
 
 export { StyledComponent, StyledContainer, StyledHeader, PaymentContainer, StyledField, StyledMenu, StyledSubmit, StyledDiv };
