@@ -56,7 +56,6 @@ export default class TaskStore {
 
   async fetchUsers() {
     this.users = await this.userService.find();
-    // console.log('bids', this.users[1].bids[0])
   }
 
   @action.bound
