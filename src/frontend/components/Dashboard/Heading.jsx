@@ -5,7 +5,7 @@ import { inject } from 'mobx-react';
 const StyledDiv = styled.div`
   width: 100%;
   height: 20px;
-  position: absolute;
+  position: fixed;
   top: 550px;
   margin: auto;
   display: flex;

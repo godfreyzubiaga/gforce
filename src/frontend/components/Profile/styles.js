@@ -6,14 +6,13 @@ const styles = {
     },
     body: {
         margin: '0',
-        fontFamily: 'Varela Round',
+        fontFamily: 'Open Sans'
     },
     a: {
         lineHeight: '60px',
         fontSize: '2em',
         textDecoration: 'none',
-        color: 'white',
-        marginLeft: '-37px'
+        color: 'white'
     },
     menu: {
         float: 'left',
@@ -25,16 +24,16 @@ const styles = {
         cursor: 'pointer'
     },
     details: {
-        fontSize: '1.5em',
-        textAlign: 'center',
+        fontSize: '1.3em',
+        textAlign: 'left',
+        marginLeft: '30px'
     },
     displayPic: {
-        fontSize: '1.5em',
         textAlign: 'center',
         background: '#ABD3E4',
         padding: '10px'
     },
-    img: {
+    image: {
         width: '200px',
         height: '200px',
         background: 'white',
