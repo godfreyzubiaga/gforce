@@ -32,6 +32,8 @@ export default class TaskStore {
     this.bankService = this.app.service('/api/bank');
     this.taskService.on('created', newTask => {
       this.tasks.push(newTask);
+    }).on('patched', updatedTask => {
+      console.log('patch', updatedTask)
     });
     this.bidService.on('created', newBid => {
       this.bids.push(newBid);
@@ -115,8 +117,9 @@ export default class TaskStore {
     return this.tasks.length;
   }
 
-  @action.bound selectEmployee(user) {
+  @action.bound selectEmployee(taskId, user) {
     this.selectedEmployee = user;
-    console.log('e',this.selectedEmployee)
+    const employeeId = this.selectedEmployee._id;
+    this.taskService.patch(taskId, { employeeId })
   }
 }
