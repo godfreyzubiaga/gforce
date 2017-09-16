@@ -15,7 +15,6 @@ class UserStore {
     try {
       const user = await this.client.get('user');
       this.updateUser(user);
-      console.log(user, 'adas134')
       this.isAuthenticated = true;
     } catch (error) {
       console.log(error);
