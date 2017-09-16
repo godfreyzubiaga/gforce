@@ -13,6 +13,7 @@ import Profile from './components/Profile';
 import Tasks from './components/Tasks';
 
 const store = new RootStore(client);
+window.store = store;
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Lobster|Open+Sans');

@@ -4,13 +4,17 @@ import { Link } from 'react-router-dom';
 import { inject } from 'mobx-react';
 import { StyledDiv, StyledInput, StyledForm } from './style.js';
 
+const StyledH1 = styled.h1`
+  font-family: 'Lobster', cursive;
+`;
+
 @inject('store')
 class Login extends React.Component {
   render() {
     const { store: { authStore } } = this.props;
     return (
       <StyledDiv>
-        <h1>Tambay.ph</h1>
+        <StyledH1>Stand.bye</StyledH1>
         <StyledForm>
           <StyledInput>
             <label>Username</label>

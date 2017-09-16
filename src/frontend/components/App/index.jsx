@@ -12,13 +12,14 @@ class App extends React.Component {
   componentDidMount() {
     const { store: { userStore, authStore } } = this.props;
     authStore.authenticate();
+    userStore.setUser();
   }
 
   render() {
     const { store: { userStore } } = this.props;
     return (
       <div>
-        
+
         {
           userStore.isAuthenticated ? <Dashboard /> : <Login />
         }

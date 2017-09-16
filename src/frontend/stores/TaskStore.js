@@ -20,9 +20,9 @@ export default class TaskStore {
     this.store = rootStore;
     this.app = app;
     this.initialize();
-    this.fetchUsers();
     this.fetchTasks();
     this.fetchBids();
+    this.fetchUsers();
   }
 
   initialize() {
@@ -58,22 +58,30 @@ export default class TaskStore {
     this.users = await this.userService.find();
   }
 
-  @action.bound
-  async bid(userId, task) {
+  @action.bound async bid(userId, task) {
     const data = {
       taskId: task._id,
       user: userId,
       price: task.price,
       date: new Date(Date.now())
     };
-    console.log(data, ' da data')
+
     await this.bidService.create(data);
+    this.store.viewStore.setModalView(false);
   }
 
-  @action.bound
-  async postTask(event) {
+  @action.bound async postTask(event) {
     event.preventDefault();
     this.values.dateIssued = new Date();
+    this.values.active = true;
+    this.store.locationStore.getCoordinates();
+    this.values.lng = this.store.locationStore.coordinates.longitude;
+    this.values.lat = this.store.locationStore.coordinates.latitude;
+    this.values.employerName = this.store.userStore.currentUser.name;
+    this.values.image = this.store.userStore.currentUser.image;
+    const res = await this.taskService.create(this.values);
+    this.addTask(res);
+    alert('You created a task for people to see!');
     try {
       await this.taskService.create(this.values);
       alert('Task added successfully!');
@@ -82,17 +90,21 @@ export default class TaskStore {
     }
   }
 
+
   @action.bound onModalClick(task) {
     console.log(task);
     this.store.viewStore.setModalView(true);
     this.setCurrentTask(task);
     console.log(this.currentTask);
     console.log(this.store.userStore.currentUser, ' da curent user')
-
   }
 
   @action.bound setCurrentTask(task) {
     this.currentTask = task;
+  }
+
+  @action.bound addTask(task) {
+    this.tasks.push(task);
   }
 
   @computed get activeTasks() {
