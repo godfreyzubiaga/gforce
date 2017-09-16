@@ -22,6 +22,7 @@ export default class TaskStore {
     this.initialize();
     this.fetchTasks();
     this.fetchBids();
+    this.fetchUsers();
   }
 
   initialize() {
@@ -77,20 +78,19 @@ export default class TaskStore {
     this.store.locationStore.getCoordinates();
     this.values.lng = this.store.locationStore.coordinates.longitude;
     this.values.lat = this.store.locationStore.coordinates.latitude;
-    this.values.name = this.store.userStore.currentUser.name;
+    this.values.employerName = this.store.userStore.currentUser.name;
     this.values.image = this.store.userStore.currentUser.image;
+    const res = await this.taskService.create(this.values);
+    this.addTask(res);
+    alert('You created a task for people to see!');
     try {
-      const res = await this.taskService.create(this.values);
-      this.addTask(res);
-      alert('You created a task for people to see!');
-      try {
-        await this.taskService.create(this.values);
-        alert('Task added successfully!');
-      } catch (e) {
-        alert('There was an error in submitting the task, please try again.');
-      }
+      await this.taskService.create(this.values);
+      alert('Task added successfully!');
+    } catch (e) {
+      alert('There was an error in submitting the task, please try again.');
     }
   }
+
 
   @action.bound onModalClick(task) {
     console.log(task);

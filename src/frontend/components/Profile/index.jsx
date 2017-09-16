@@ -1,14 +1,19 @@
 import React from "react";
 import { observer, inject } from "mobx-react";
+import styled from 'styled-components';
 import styles from "./styles";
 import Header from '../Dashboard/Header';
 import Sidebar from '../Dashboard/Sidebar';
+
+const StyledDiv = styled.div`
+  fontFamily: 'Open Sans', 'sans-serif';
+`;
 
 const Profile = inject("store")(
   observer(({ store }) => {
     const { image, name, reputation, age, phoneNumber } = store.userStore.currentUser;
     return (
-      <div>
+      <StyledDiv>
         <Header />
         <Sidebar />
         <div style={styles.body}>
@@ -28,7 +33,7 @@ const Profile = inject("store")(
             </div>
           </div>
         </div>
-      </div>
+      </StyledDiv>
     );
   })
 );

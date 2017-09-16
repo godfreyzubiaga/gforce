@@ -84,7 +84,7 @@ const Modal = ({ store }) => {
       {store.taskStore.currentTask ?
         <StyledModal>
           <img src={store.taskStore.currentTask.image} />
-          <h2> Employer: {store.taskStore.currentTask.name} </h2>
+          <h2> Employer: {store.taskStore.currentTask.employerName} </h2>
           <h3> Task Description: {store.taskStore.currentTask.description} </h3>
           <h4> Price: {store.taskStore.currentTask.price} </h4>
           <Flexed>

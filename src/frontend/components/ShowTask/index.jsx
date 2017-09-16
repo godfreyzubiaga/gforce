@@ -2,7 +2,8 @@ import React from 'react';
 import { inject, observer } from 'mobx-react';
 import { SortableContainer, SortableElement, arrayMove } from 'react-sortable-hoc';
 import client from '../../client';
-
+import Header from '../Dashboard/Header';
+import Sidebar from '../Dashboard/Sidebar';
 
 const SortableItem = SortableElement(({ value }) => <li>{value}</li>);
 
@@ -24,6 +25,12 @@ export default class SortableComponent extends React.Component {
 
   render() {
     const items = this.store.userStore.currentUser.bids.map(bid => `${bid.user.name} - Rep: ${bid.user.reputation}`);
-    return <SortableList items={items} onSortEnd={this.onSortEnd} />;
+    return (
+      <div>
+        <Header />
+        <Sidebar />
+        <SortableList items={items} onSortEnd={this.onSortEnd} />
+      </div>
+    );
   }
 }

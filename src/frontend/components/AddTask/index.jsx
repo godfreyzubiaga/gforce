@@ -50,7 +50,6 @@ class AddTask extends React.Component {
               <Map />
             </StyledFields>
             <br />
-            <br />
             <StyledFields>
               <SubmitStyle>
                 <a type="submit" name="submit" onClick={taskStore.postTask}>Submit</a>
