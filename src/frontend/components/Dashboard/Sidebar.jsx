@@ -25,6 +25,7 @@ class Sidebar extends React.Component {
         <StyledA to="/add-task">Create Task</StyledA>
         <StyledA to="/transactions">Transactions</StyledA>
         <StyledA to="/tasks">Tasks</StyledA>
+        <StyledA to="/payment-gateway/100595513256/100059817726/500">Payment</StyledA>
         <StyledA to="/" onClick={authStore.handleLogout}>Logout</StyledA>
       </Menu>
     );
