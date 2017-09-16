@@ -1,9 +1,9 @@
 import { observable, action } from 'mobx';
-// import client from '../client';
+import client from '../client';
 
 class PaymentGatewayStore {
 
-  balance = 0;
+  @observable balance = 0;
 
   constructor(rootStore, client) {
     this.store = rootStore;
@@ -14,10 +14,9 @@ class PaymentGatewayStore {
 
 
   @action.bound
-  async getBalance() {
-    const accountNo = 101982035430;
+  async getBalance(acct) {
+    const accountNo = acct;
     const account = await this.bankService.get(accountNo);
-    // console.log(account[0].avaiable_balance, ' da acconut')
     this.balance = account[0].avaiable_balance;
     return account[0].avaiable_balance;
   }
