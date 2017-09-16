@@ -6,7 +6,7 @@ import Header from '../Dashboard/Header';
 import Sidebar from '../Dashboard/Sidebar';
 
 const StyledDiv = styled.div`
-  fontFamily: 'Open Sans', 'sans-serif';
+  fontFamily: 'Open Sans';
 `;
 
 const Profile = inject("store")(
@@ -30,7 +30,7 @@ const Profile = inject("store")(
             <p> Age : {age} </p>
             <p> Phone Number : {phoneNumber} </p>
             <p> Reputation : {reputation} </p>
-            <span>My UNIONBANK Balance: </span> &#8369; <span>{store.paymentGatewayStore.balance}</span>
+            <span>My Wallet Balance: </span> &#8369; <span>{store.paymentGatewayStore.balance}</span>
           </div>
         </div>
         </div>
