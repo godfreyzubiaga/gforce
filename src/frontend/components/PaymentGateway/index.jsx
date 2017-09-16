@@ -44,7 +44,8 @@ class PaymentGateway extends React.Component {
         <StyledDiv>
         <PaymentContainer>
           <StyledContainer>
-            <h2>Payment Confirmation</h2>
+          <h2><img src="/unionbank.png" width="20%" />Payment Confirmation</h2>
+            <br />
             <span>Amount</span>
             <br /> (&#8369;)
             <br />
