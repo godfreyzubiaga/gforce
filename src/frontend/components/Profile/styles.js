@@ -6,7 +6,7 @@ const styles = {
     },
     body: {
         margin: '0',
-        fontFamily: 'Varela Round',
+        fontFamily: 'Open Sans',
     },
     a: {
         lineHeight: '60px',
@@ -25,9 +25,9 @@ const styles = {
         cursor: 'pointer'
     },
     details: {
-        fontSize: '1.5em',
-        textAlign: 'center',
-    },
+        fontSize: '18px',
+        padding: '20px'
+        },
     displayPic: {
         fontSize: '1.5em',
         textAlign: 'center',
@@ -38,7 +38,10 @@ const styles = {
         width: '200px',
         height: '200px',
         background: 'white',
-        borderRadius: '50%',
+    },
+    p: {
+        margin: '0px',
+        marginBottom: '7px'
     }
 }
 

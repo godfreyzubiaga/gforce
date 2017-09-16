@@ -27,10 +27,18 @@ const Profile = inject("store")(
             </div>
 
           <div style={styles.details}>
-            <p> Age : {age} </p>
-            <p> Phone Number : {phoneNumber} </p>
-            <p> Reputation : {reputation} </p>
-            <span>My UNIONBANK Balance: </span> &#8369; <span>{store.paymentGatewayStore.balance}</span>
+            <p style={styles.p}> Age : {age} </p>
+            <p  style={styles.p}> Phone Number : {phoneNumber} </p>
+            <p style={styles.p}> Reputation : {reputation} </p>
+            <span style={styles.p}>My UNIONBANK Balance: </span> &#8369; <span>{store.paymentGatewayStore.balance}</span>
+            <p style={styles.p}> Your current tasks: </p>
+            {
+              store.taskStore.currentTasks.map(task => 
+              <div>
+                <span style={styles.p}> Employer: {task.employer} Description: {task.description} </span>
+              </div>
+                )
+            }
           </div>
         </div>
         </div>

@@ -46,6 +46,10 @@ export default class TaskStore {
     this.values[event.target.id] = event.target.value;
   }
 
+  @computed get currentTasks () {
+    return this.tasks.filter(task => task.employeeId === this.store.userStore.currentUser._id);
+  }
+
   async fetchTasks() {
     this.tasks = await this.taskService.find();
   }
