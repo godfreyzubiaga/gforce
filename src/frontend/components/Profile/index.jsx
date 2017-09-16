@@ -6,7 +6,7 @@ import Header from '../Dashboard/Header';
 import Sidebar from '../Dashboard/Sidebar';
 
 const StyledDiv = styled.div`
-  fontFamily: 'Open Sans', 'sans-serif';
+  fontFamily: 'Open Sans';
 `;
 
 const Profile = inject("store")(

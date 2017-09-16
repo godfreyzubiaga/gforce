@@ -12,8 +12,7 @@ const styles = {
         lineHeight: '60px',
         fontSize: '2em',
         textDecoration: 'none',
-        color: 'white',
-        marginLeft: '-37px'
+        color: 'white'
     },
     menu: {
         float: 'left',
@@ -29,12 +28,11 @@ const styles = {
         padding: '20px'
         },
     displayPic: {
-        fontSize: '1.5em',
         textAlign: 'center',
         background: '#ABD3E4',
         padding: '10px'
     },
-    img: {
+    image: {
         width: '200px',
         height: '200px',
         background: 'white',

@@ -18,7 +18,6 @@ class PaymentGateway extends React.Component {
     this.source = props.match.params.source;
     this.target = props.match.params.target;
     this.amount = props.match.params.amount;
-    console.log(this.props.store)
     this.confirmAction = this.confirmAction.bind(this);
   }
 
